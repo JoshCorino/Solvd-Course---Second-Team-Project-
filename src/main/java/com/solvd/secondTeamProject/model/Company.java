@@ -6,11 +6,11 @@ import java.util.List;
 public class Company extends AbstractEntity{
 	
 	private String name;
-	private List<Transport> transports;
+	private List<CompanyTransport> transports;
 
 	public Company() {
 		name="no-name";
-		transports=new ArrayList<Transport>();
+		transports=new ArrayList<CompanyTransport>();
 	}
 	public String getName() {
 		return name;
@@ -20,7 +20,11 @@ public class Company extends AbstractEntity{
 		this.name = name;
 	}
 	
-	public void addTransport(Transport t) {
+	public void addTransport(CompanyTransport t) {
 		transports.add(t);
+	}
+	
+	public List<CompanyTransport> getTransports(){
+		return transports;
 	}
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.secondTeamProject.dao.ITransportDAO">
+	<resultMap id="TransportResultMap" type="com.solvd.secondTeamProject.model.Transport">
+		<id property="id" column="id"></id>
+		<result property="name" column="transport_name"></result>
+	</resultMap>
+</mapper>

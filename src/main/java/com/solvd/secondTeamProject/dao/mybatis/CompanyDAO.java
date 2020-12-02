@@ -42,9 +42,8 @@ public class CompanyDAO implements ICompanyDAO{
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 			ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
-			if(bhDao.getById(id)!=null)
+			if(bhDao.getById(id) != null)
 				return bhDao.getById(id);
-			
 		} catch (IOException e) {
 			log.error(e);
 		}
