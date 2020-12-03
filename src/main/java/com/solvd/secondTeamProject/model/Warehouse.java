@@ -27,9 +27,18 @@ public class Warehouse extends AbstractEntity{
 	public void addProduct(Product p) {
 		goods.add(p);
 	}
+	
 	@Override
 	public String toString() {
 		return "Warehouse [name=" + name + ", allowedTransports=" + allowedTransports + ", goods=" + goods + "]";
+	}
+	
+	public ArrayList<Transport> getTransports() {
+		return new ArrayList<Transport> (allowedTransports);
+	}
+	
+	public ArrayList<Product> getProducts() {
+		return new ArrayList<Product>(goods);
 	}
 	
 	

@@ -30,8 +30,7 @@ public class App
     	
     	Warehouse warehouse = new Warehouse();
     	warehouse.setName("Warehouse");
-    
-    	
+        	
         CompanyDAO cDAO = new CompanyDAO();
         OrderDAO oDAO = new OrderDAO();
         ProductDAO pDAO = new ProductDAO();

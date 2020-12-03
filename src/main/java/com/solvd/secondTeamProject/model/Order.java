@@ -12,6 +12,7 @@ public class Order extends AbstractEntity{
 		date=new Date(0);
 		goods=new ArrayList<Product>();
 	}
+	
 	public Date getDate() {
 		return date;
 	}
@@ -24,6 +25,12 @@ public class Order extends AbstractEntity{
 	@Override
 	public String toString() {
 		return "Order [date=" + date + ", goods=" + goods + "]";
+	}
+	public List<Product> getGoods() {
+		return goods;
+	}
+	public void setGoods(List<Product> goods) {
+		this.goods = goods;
 	}
 	
 }
