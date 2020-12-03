@@ -19,5 +19,6 @@
  		  <mapper resource="mappers/CompanyMapper.xml"/>
  		  <mapper resource="mappers/TransportMapper.xml"/>
  		  <mapper resource="mappers/CompanyTransportMapper.xml"/>
+ 		  <mapper resource="mappers/OrderMapper.xml"/>
 	</mappers>
 </configuration>

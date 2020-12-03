@@ -11,6 +11,6 @@ public class App
     public static void main( String[] args )
     {
         CompanyDAO dao = new CompanyDAO();
-        System.out.println(dao.getById(1).getName());
+        System.out.println(dao.getById(1).getOrders().get(0).getDate());
     }
 }

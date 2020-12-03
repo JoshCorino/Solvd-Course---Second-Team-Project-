@@ -6,11 +6,22 @@ import java.util.List;
 public class Company extends AbstractEntity{
 	
 	private String name;
+	private List<Order> orders;
 	private List<CompanyTransport> transports;
 
 	public Company() {
 		name="no-name";
-		transports=new ArrayList<CompanyTransport>();
+		transports = new ArrayList<CompanyTransport>();
+		orders = new ArrayList<Order>();
+	}
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+	public void setTransports(List<CompanyTransport> transports) {
+		this.transports = transports;
 	}
 	public String getName() {
 		return name;

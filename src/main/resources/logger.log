@@ -1,3 +1,3 @@
-2020-12-02 11:18:08 DEBUG getById:143 - ==>  Preparing: SELECT * FROM companies com WHERE com.id = ? 
-2020-12-02 11:18:08 DEBUG getById:143 - ==> Parameters: 1(Long)
-2020-12-02 11:18:08 DEBUG getById:143 - <==      Total: 1
+2020-12-03 09:54:01 DEBUG getById:143 - ==>  Preparing: SELECT com.name, com.id, ord.id AS order_id, ord.companies_id AS order_companies_id, ord.date AS order_date FROM companies com LEFT JOIN orders ord ON (ord.companies_id = com.id) WHERE com.id = ? 
+2020-12-03 09:54:01 DEBUG getById:143 - ==> Parameters: 1(Long)
+2020-12-03 09:54:01 DEBUG getById:143 - <==      Total: 1

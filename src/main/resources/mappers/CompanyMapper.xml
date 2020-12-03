@@ -6,6 +6,6 @@
 	<resultMap id="CompanyResultMap" type="com.solvd.secondTeamProject.model.Company">
 		<id property="id" column="id"></id>
 		<result property="name" column="name"></result>
-	  	<!--<collection property="transports" javaType="ArrayList" ofType="com.solvd.secondTeamProject.model.CompanyTransport" columnPrefix="ct_" resultMap="com.solvd.secondTeamProject.dao.ICompanyTransportDAO.CompanyTransportResultMap" column="id" foreignColumn="ct_compaanies_id" /> -->
+	  	<collection property="orders" javaType="ArrayList" ofType="com.solvd.secondTeamProject.model.Order" columnPrefix="order_" resultMap="com.solvd.secondTeamProject.dao.IOrderDAO.OrderResultMap" column="id" foreignColumn="order_compaanies_id" />
 	</resultMap>
 </mapper>

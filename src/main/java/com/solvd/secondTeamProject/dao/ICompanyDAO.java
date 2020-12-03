@@ -11,7 +11,14 @@ public interface ICompanyDAO extends IGenericDAO<Company>{
 	@Select("insert into companies(name) values (#{name})")
 	public Company save(Company g);
 	
-	@Select("SELECT * FROM companies com WHERE com.id = #{id}")
+	@Select("SELECT "
+			+ "com.name, com.id, "
+			+ "ord.id 				AS order_id, "
+			+ "ord.companies_id 	AS order_companies_id, "
+			+ "ord.date 			AS order_date "
+			+ "FROM companies com LEFT JOIN orders ord "
+			+ "ON (ord.companies_id = com.id) "
+			+ "WHERE com.id = #{id}")
 	@ResultMap("CompanyResultMap")
 	public Company getById(long id);
 	
