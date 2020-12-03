@@ -28,7 +28,7 @@ public class OrderDAO extends MySQLDAO implements IOrderDAO{
 			con = cp.getConnection();
 			PreparedStatement pre = con.prepareStatement(SAVE_ORDER, Statement.RETURN_GENERATED_KEYS);
 			pre.setLong(1,companiesId);
-			pre.setDate(1,o.getDate());
+			pre.setDate(2,o.getDate());
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Order saved");

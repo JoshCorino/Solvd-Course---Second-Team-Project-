@@ -19,6 +19,11 @@ public class CompanyTransport extends AbstractEntity{
 	public void setCapacity(double capacity) {
 		this.capacity = capacity;
 	}
+
+	@Override
+	public String toString() {
+		return "CompanyTransport [transportType=" + transportType + ", capacity=" + capacity + "]";
+	}
 	
 	
 }

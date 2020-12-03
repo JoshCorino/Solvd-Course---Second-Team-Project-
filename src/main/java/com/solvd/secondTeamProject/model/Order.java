@@ -21,4 +21,9 @@ public class Order extends AbstractEntity{
 	public void addProduct(Product p) {
 		goods.add(p);
 	}
+	@Override
+	public String toString() {
+		return "Order [date=" + date + ", goods=" + goods + "]";
+	}
+	
 }

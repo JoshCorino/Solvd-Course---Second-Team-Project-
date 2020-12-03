@@ -27,5 +27,12 @@ public class Product extends AbstractEntity{
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + ", volume=" + volume + "]";
+	}
+	
 	
 }
+

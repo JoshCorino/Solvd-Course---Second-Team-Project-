@@ -12,4 +12,9 @@ public class Transport extends AbstractEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return "Transport [name=" + name + "]";
+	}
+	
 }

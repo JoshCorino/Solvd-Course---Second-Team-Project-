@@ -1,3 +1,15 @@
-2020-12-03 09:54:01 DEBUG getById:143 - ==>  Preparing: SELECT com.name, com.id, ord.id AS order_id, ord.companies_id AS order_companies_id, ord.date AS order_date FROM companies com LEFT JOIN orders ord ON (ord.companies_id = com.id) WHERE com.id = ? 
-2020-12-03 09:54:01 DEBUG getById:143 - ==> Parameters: 1(Long)
-2020-12-03 09:54:01 DEBUG getById:143 - <==      Total: 1
+2020-12-03 14:52:31 INFO  CompanyDAO:34 - Company saved
+2020-12-03 14:52:31 INFO  OrderDAO:34 - Order saved
+2020-12-03 14:52:31 INFO  ProductDAO:33 - Product saved
+2020-12-03 14:52:31 INFO  TransportDAO:31 - Transport saved
+2020-12-03 14:52:31 INFO  WarehouseDAO:32 - Warehouse saved
+2020-12-03 14:52:31 INFO  App:48 - Company [name=DHL, orders=[], transports=[]]
+2020-12-03 14:52:31 INFO  App:51 - Order [date=1969-12-31, goods=[]]
+2020-12-03 14:52:31 INFO  App:54 - Product [name=Tv, price=100.0, volume=10.0]
+2020-12-03 14:52:31 INFO  App:58 - Transport [name=train]
+2020-12-03 14:52:31 INFO  App:61 - Warehouse [name=Warehouse, allowedTransports=[], goods=[]]
+2020-12-03 14:52:31 INFO  OrderDAO:82 - Order deleted
+2020-12-03 14:52:31 INFO  CompanyDAO:82 - Company deleted
+2020-12-03 14:52:31 INFO  ProductDAO:83 - Product deleted
+2020-12-03 14:52:31 INFO  TransportDAO:79 - Transport deleted
+2020-12-03 14:52:31 INFO  WarehouseDAO:80 - Warehouse deleted

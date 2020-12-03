@@ -26,8 +26,8 @@ public class ProductDAO extends MySQLDAO implements IProductDAO{
 			con = cp.getConnection();
 			PreparedStatement pre = con.prepareStatement(SAVE_PRODUCT, Statement.RETURN_GENERATED_KEYS);
 			pre.setDouble(1,p.getPrice());
-			pre.setDouble(1,p.getVolume());
-			pre.setString(1,p.getName());
+			pre.setDouble(2,p.getVolume());
+			pre.setString(3,p.getName());
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Product saved");
