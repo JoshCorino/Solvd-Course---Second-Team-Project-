@@ -6,7 +6,7 @@ import com.solvd.secondTeamProject.model.Order;
 public class OrderDAO implements IOrderDAO{
 
 	@Override
-	public Order save(Order g) {
+	public Order save(Order g,long companyId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

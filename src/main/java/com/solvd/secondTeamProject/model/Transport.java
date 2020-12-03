@@ -3,7 +3,6 @@ package com.solvd.secondTeamProject.model;
 public class Transport extends AbstractEntity {
 	private String name;
 	
-	
 	public Transport() {
 		name="no-name";
 	}
