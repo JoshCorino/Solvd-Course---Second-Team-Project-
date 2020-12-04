@@ -5,10 +5,10 @@ import com.solvd.secondTeamProject.model.Order;
 
 public class OrderDAO implements IOrderDAO{
 
-	@Override
 	public Order save(Order g,long companyId) {
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 	@Override
@@ -21,6 +21,12 @@ public class OrderDAO implements IOrderDAO{
 	public void remove(long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Order save(Order g) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

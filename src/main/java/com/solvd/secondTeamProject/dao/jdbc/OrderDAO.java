@@ -1,6 +1,7 @@
 package com.solvd.secondTeamProject.dao.jdbc;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -115,6 +116,12 @@ public class OrderDAO extends MySQLDAO implements IOrderDAO{
 			cp.releaseConnection(con);
 		}
         return result;
+	}
+
+	@Override
+	public Order save(Order g) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

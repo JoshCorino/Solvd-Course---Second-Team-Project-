@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +22,6 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 	private final String SAVE_COMPANY= "insert into companies(name) values(?)";
 	private Logger log = LogManager.getLogger(CompanyDAO.class);
 
-	
 	@Override
 	public Company save(Company c) {
 		Connection con = null;
@@ -87,6 +87,12 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 		}finally{
 			cp.releaseConnection(con);
 		}
+	}
+
+	@Override
+	public List<Company> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

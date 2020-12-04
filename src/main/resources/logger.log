@@ -1,15 +1,3 @@
-2020-12-03 14:52:31 INFO  CompanyDAO:34 - Company saved
-2020-12-03 14:52:31 INFO  OrderDAO:34 - Order saved
-2020-12-03 14:52:31 INFO  ProductDAO:33 - Product saved
-2020-12-03 14:52:31 INFO  TransportDAO:31 - Transport saved
-2020-12-03 14:52:31 INFO  WarehouseDAO:32 - Warehouse saved
-2020-12-03 14:52:31 INFO  App:48 - Company [name=DHL, orders=[], transports=[]]
-2020-12-03 14:52:31 INFO  App:51 - Order [date=1969-12-31, goods=[]]
-2020-12-03 14:52:31 INFO  App:54 - Product [name=Tv, price=100.0, volume=10.0]
-2020-12-03 14:52:31 INFO  App:58 - Transport [name=train]
-2020-12-03 14:52:31 INFO  App:61 - Warehouse [name=Warehouse, allowedTransports=[], goods=[]]
-2020-12-03 14:52:31 INFO  OrderDAO:82 - Order deleted
-2020-12-03 14:52:31 INFO  CompanyDAO:82 - Company deleted
-2020-12-03 14:52:31 INFO  ProductDAO:83 - Product deleted
-2020-12-03 14:52:31 INFO  TransportDAO:79 - Transport deleted
-2020-12-03 14:52:31 INFO  WarehouseDAO:80 - Warehouse deleted
+2020-12-04 00:10:50 DEBUG getTransportsByCompanyId:143 - ==>  Preparing: SELECT * FROM companies_have_transports cht LEFT JOIN transport_types tt ON (cht.transports_id = tt.id) WHERE cht.companies_id = ? 
+2020-12-04 00:10:51 DEBUG getTransportsByCompanyId:143 - ==> Parameters: 1(Long)
+2020-12-04 00:10:51 DEBUG getTransportsByCompanyId:143 - <==      Total: 3

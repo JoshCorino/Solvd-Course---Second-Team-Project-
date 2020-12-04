@@ -6,5 +6,6 @@
 	<resultMap id="TransportResultMap" type="com.solvd.secondTeamProject.model.Transport">
 		<id property="id" column="id"></id>
 		<result property="name" column="transport_name"></result>
+		<result property="capacity" column="capacity"></result>
 	</resultMap>
 </mapper>

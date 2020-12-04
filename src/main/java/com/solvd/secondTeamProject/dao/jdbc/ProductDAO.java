@@ -1,6 +1,7 @@
 package com.solvd.secondTeamProject.dao.jdbc;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,6 +47,7 @@ public class ProductDAO extends MySQLDAO implements IProductDAO{
         return p;
 	}
 
+	
 	@Override
 	public Product getById(long id) {
 		Product p = new Product();

@@ -2,6 +2,8 @@ package com.solvd.secondTeamProject.dao.mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,39 +12,26 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
-import com.solvd.secondTeamProject.dao.ITransportDAO;
+import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Transport;
 
-public class TransportDAO implements ITransportDAO{
-	private Logger log = LogManager.getLogger(TransportDAO.class);
+public class CompanyTransportDAO implements ICompanyTransportDAO {
+	private Logger log = LogManager.getLogger(CompanyTransportDAO.class);
 
 	@Override
-	public Transport save(Transport g) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Transport getById(long id) {
+	public List<Transport> getTransportsByCompanyId(long id) {
 		try {
 			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-			ITransportDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ITransportDAO.class);
-			if(bhDao.getById(id) != null)
-				return bhDao.getById(id);
+			ICompanyTransportDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyTransportDAO.class);
+			if(bhDao.getTransportsByCompanyId(id) != null)
+				return bhDao.getTransportsByCompanyId(id);
 		} catch (IOException e) {
 			log.error(e);
 		}
-		return new Transport();
-	}
-	
-
-	@Override
-	public void remove(long id) {
-		// TODO Auto-generated method stub
-		
+		return new ArrayList<Transport>();
 	}
 
 }
