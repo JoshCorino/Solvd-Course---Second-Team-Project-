@@ -133,12 +133,22 @@ public class App{
         
         ICompanyDAO cd = new CompanyDAO();
         //System.out.println(cd.getAll());
+        //System.out.println(cd.getCompanyById(1));
+        //Company newCompany = new Company();
+        //newCompany.setName("Amazon");
+        Company existing = cd.getCompanyById(2);
+        //cd.save(newCompany);
+        //System.out.println(cd.getAll());
         
         ITransportDAO td = new TransportDAO();
         //System.out.println(td.getById(1));
         
         ICompanyTransportDAO ctd = new CompanyTransportDAO();
         //System.out.println(ctd.getTransportsByCompanyId(1l));
+        Transport t = td.getById(1);
+        t.setCapacity(200.0);
+        
+        //ctd.relate(existing, t);
         
         IOrderGoodsDAO ogd = new OrderGoodsDAO();
         //System.out.println(ogd.getProductsByOrderId(1));
@@ -153,7 +163,7 @@ public class App{
         //System.out.println(whtd.getTransportsByWarehouseId(2));
         
         IProductDAO pd = new ProductDAO();
-        System.out.println(pd.getProductById(2));
+        //System.out.println(pd.getProductById(2));
     }
    
 }

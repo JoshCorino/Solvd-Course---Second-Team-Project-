@@ -1,3 +1,9 @@
-2020-12-05 18:44:48 DEBUG getProductById:143 - ==>  Preparing: SELECT * FROM goods WHERE id = ? 
-2020-12-05 18:44:48 DEBUG getProductById:143 - ==> Parameters: 2(Long)
-2020-12-05 18:44:48 DEBUG getProductById:143 - <==      Total: 1
+2020-12-05 20:38:14 DEBUG getCompanyById:143 - ==>  Preparing: SELECT * FROM companies com WHERE com.id = ? 
+2020-12-05 20:38:14 DEBUG getCompanyById:143 - ==> Parameters: 2(Long)
+2020-12-05 20:38:14 DEBUG getCompanyById:143 - <==      Total: 1
+2020-12-05 20:38:15 DEBUG getById:143 - ==>  Preparing: SELECT * FROM transport_types WHERE id = ? 
+2020-12-05 20:38:15 DEBUG getById:143 - ==> Parameters: 1(Long)
+2020-12-05 20:38:15 DEBUG getById:143 - <==      Total: 1
+2020-12-05 20:38:15 DEBUG relate:143 - ==>  Preparing: INSERT INTO companies_have_transports (companies_id, transports_id, capacity) VALUES (?, ?, ?) 
+2020-12-05 20:38:15 DEBUG relate:143 - ==> Parameters: 2(Long), 1(Long), 200.0(Double)
+2020-12-05 20:38:15 DEBUG relate:143 - <==    Updates: 1

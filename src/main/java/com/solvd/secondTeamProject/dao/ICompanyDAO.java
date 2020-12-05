@@ -10,10 +10,10 @@ import com.solvd.secondTeamProject.model.Company;
 
 public interface ICompanyDAO{
 	
-	@Select("insert into companies (name) values (#{name})")
+	@Select("INSERT INTO companies (name) VALUES (#{name})")
 	public Company save(Company g);
 	
-	@Select("SELECT * WHERE com.id = #{id}")
+	@Select("SELECT * FROM companies com WHERE com.id = #{id}")
 	@ResultMap("CompanyResultMap")
 	public Company getCompanyById(long id);
 	
@@ -21,6 +21,6 @@ public interface ICompanyDAO{
 	@ResultMap("CompanyResultMap")
 	public List<Company> getAll();
 	
-	@Delete("delete from companies where id = #{id}")
+	@Delete("DELETE FROM companies WHERE id = #{id}")
 	public void remove(long id);
 }

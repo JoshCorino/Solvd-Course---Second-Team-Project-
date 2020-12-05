@@ -34,4 +34,16 @@ public class CompanyTransportDAO implements ICompanyTransportDAO {
 		return new ArrayList<Transport>();
 	}
 
+	@Override
+	public void relate(Company c, Transport t) {
+		try {
+			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+			ICompanyTransportDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyTransportDAO.class);
+			bhDao.relate(c, t);
+		} catch (IOException e) {
+			log.error(e);
+		}
+	}
+
 }
