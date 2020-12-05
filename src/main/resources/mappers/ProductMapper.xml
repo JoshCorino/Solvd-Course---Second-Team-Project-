@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.secondTeamProject.dao.IProductDAO">
+	<resultMap id="ProductResultMap" type="com.solvd.secondTeamProject.model.Product">
+		<id property="id" column="id"></id>
+		<result property="price" column="price"></result>
+		<result property="volume" column="volume"></result>
+		<result property="name" column="good_name"></result>
+	</resultMap>
+</mapper>

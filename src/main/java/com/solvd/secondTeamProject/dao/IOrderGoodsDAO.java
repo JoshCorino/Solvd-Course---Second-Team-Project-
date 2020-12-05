@@ -13,8 +13,11 @@ import com.solvd.secondTeamProject.model.Product;
 public interface IOrderGoodsDAO {
 
 
-	@Select("SELECT * FROM orders WHERE id = #{id}")
-	@ResultMap("OrderResultMap")
+	@Select("SELECT * FROM orders_have_goods ohg "
+			+ "LEFT JOIN goods gs "
+			+ "ON (gs.id = ohg.goods_id) "
+			+ "WHERE ohg.orders_id = #{id}")
+	@ResultMap("com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap")
 	List<Product> getProductsByOrderId(long id);
 	
 }

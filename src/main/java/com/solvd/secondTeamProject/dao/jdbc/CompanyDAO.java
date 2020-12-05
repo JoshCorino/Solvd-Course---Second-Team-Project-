@@ -22,6 +22,7 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 	private final String SAVE_COMPANY= "insert into companies(name) values(?)";
 	private Logger log = LogManager.getLogger(CompanyDAO.class);
 
+	
 	@Override
 	public Company save(Company c) {
 		Connection con = null;

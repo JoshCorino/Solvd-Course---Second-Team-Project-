@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
+import com.solvd.secondTeamProject.dao.IOrderGoodsDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
 import com.solvd.secondTeamProject.model.*;
@@ -78,5 +79,8 @@ public class App
         
         ICompanyTransportDAO ctd = new CompanyTransportDAO();
         System.out.println(ctd.getTransportsByCompanyId(1l));
+        
+        IOrderGoodsDAO ogd = new OrderGoodsDAO();
+        System.out.println(ogd.getProductsByOrderId(2));
     }
 }

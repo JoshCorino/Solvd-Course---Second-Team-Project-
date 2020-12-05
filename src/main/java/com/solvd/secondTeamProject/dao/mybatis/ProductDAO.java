@@ -1,6 +1,7 @@
 package com.solvd.secondTeamProject.dao.mybatis;
 
 import com.solvd.secondTeamProject.dao.IProductDAO;
+
 import com.solvd.secondTeamProject.model.Product;
 
 public class ProductDAO implements IProductDAO{
