@@ -1,6 +1,6 @@
-2020-12-05 10:37:46 DEBUG getTransportsByCompanyId:143 - ==>  Preparing: SELECT * FROM companies_have_transports cht LEFT JOIN transport_types tt ON (cht.transports_id = tt.id) WHERE cht.companies_id = ? 
-2020-12-05 10:37:46 DEBUG getTransportsByCompanyId:143 - ==> Parameters: 1(Long)
-2020-12-05 10:37:46 DEBUG getTransportsByCompanyId:143 - <==      Total: 3
-2020-12-05 10:37:47 DEBUG getProductsByOrderId:143 - ==>  Preparing: SELECT * FROM orders_have_goods ohg LEFT JOIN goods gs ON (gs.id = ohg.goods_id) WHERE ohg.orders_id = ? 
-2020-12-05 10:37:47 DEBUG getProductsByOrderId:143 - ==> Parameters: 2(Long)
-2020-12-05 10:37:47 DEBUG getProductsByOrderId:143 - <==      Total: 2
+2020-12-05 10:39:25 DEBUG getTransportsByCompanyId:143 - ==>  Preparing: SELECT * FROM companies_have_transports cht LEFT JOIN transport_types tt ON (cht.transports_id = tt.id) WHERE cht.companies_id = ? 
+2020-12-05 10:39:25 DEBUG getTransportsByCompanyId:143 - ==> Parameters: 1(Long)
+2020-12-05 10:39:25 DEBUG getTransportsByCompanyId:143 - <==      Total: 3
+2020-12-05 10:39:26 DEBUG getProductsByOrderId:143 - ==>  Preparing: SELECT * FROM orders_have_goods ohg LEFT JOIN goods gs ON (gs.id = ohg.goods_id) WHERE ohg.orders_id = ? 
+2020-12-05 10:39:26 DEBUG getProductsByOrderId:143 - ==> Parameters: 2(Long)
+2020-12-05 10:39:26 DEBUG getProductsByOrderId:143 - <==      Total: 2
