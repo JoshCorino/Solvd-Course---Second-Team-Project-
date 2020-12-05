@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
 import com.solvd.secondTeamProject.dao.IOrderGoodsDAO;
+import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
@@ -149,7 +150,10 @@ public class App{
         //System.out.println(whgd.getGoodsByWarehouseId(2));
         
         IWarehouseTransportsDAO whtd = new WarehouseTransportsDAO();
-        System.out.println(whtd.getTransportsByWarehouseId(2));
+        //System.out.println(whtd.getTransportsByWarehouseId(2));
+        
+        IProductDAO pd = new ProductDAO();
+        System.out.println(pd.getProductById(2));
     }
    
 }
