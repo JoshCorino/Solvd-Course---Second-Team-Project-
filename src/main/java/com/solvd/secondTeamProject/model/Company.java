@@ -7,11 +7,11 @@ public class Company extends AbstractEntity{
 	
 	private String name;
 	private List<Order> orders;
-	private List<Transport> transports;
-
+	private List<CompanyTransport> transports;
+	
 	public Company() {
 		name="no-name";
-		transports = new ArrayList<Transport>();
+		transports = new ArrayList<CompanyTransport>();
 		orders = new ArrayList<Order>();
 	}
 	public List<Order> getOrders() {
@@ -20,7 +20,7 @@ public class Company extends AbstractEntity{
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-	public void setTransports(List<Transport> transports) {
+	public void setTransports(List<CompanyTransport> transports) {
 		this.transports = transports;
 	}
 	public String getName() {
@@ -31,11 +31,11 @@ public class Company extends AbstractEntity{
 		this.name = name;
 	}
 	
-	public void addTransport(Transport t) {
+	public void addTransport(CompanyTransport t) {
 		transports.add(t);
 	}
 	
-	public List<Transport> getTransports(){
+	public List<CompanyTransport> getTransports(){
 		return transports;
 	}
 	@Override

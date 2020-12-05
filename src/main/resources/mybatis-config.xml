@@ -23,5 +23,7 @@
  		  <mapper resource="mappers/WarehouseMapper.xml"/>
  		  <mapper class="com.solvd.secondTeamProject.dao.IOrderGoodsDAO"/>
  		  <mapper class="com.solvd.secondTeamProject.dao.ICompanyTransportDAO"/>
+ 		  <mapper class="com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO"/>
+ 		  
 	</mappers>
 </configuration>

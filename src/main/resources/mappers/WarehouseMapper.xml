@@ -6,6 +6,6 @@
 	<resultMap id="WarehouseResultMap" type="com.solvd.secondTeamProject.model.Warehouse">
 		<id property="id" column="id"></id>
 		<result property="name" column="wh_name"></result>
-	  	<collection property="goods" javaType="ArrayList" ofType="com.solvd.secondTeamProject.model.Product" columnPrefix="good_" resultMap="com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap" />
+	  	<!-- <collection property="goods" javaType="ArrayList" ofType="com.solvd.secondTeamProject.model.Product" columnPrefix="good_" resultMap="com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap" /> -->
 	</resultMap>
 </mapper>

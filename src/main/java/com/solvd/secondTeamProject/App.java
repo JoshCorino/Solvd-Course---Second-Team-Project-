@@ -13,6 +13,7 @@ import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
 import com.solvd.secondTeamProject.dao.IOrderGoodsDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
+import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
 import com.solvd.secondTeamProject.model.*;
 
@@ -68,7 +69,7 @@ public class App{
 		
 		
 		
-		
+	
 		
 		return bestTransports;
 	}
@@ -135,13 +136,16 @@ public class App{
         //System.out.println(td.getById(1));
         
         ICompanyTransportDAO ctd = new CompanyTransportDAO();
-        System.out.println(ctd.getTransportsByCompanyId(1l));
+        //System.out.println(ctd.getTransportsByCompanyId(1l));
         
         IOrderGoodsDAO ogd = new OrderGoodsDAO();
-        System.out.println(ogd.getProductsByOrderId(2));
+        //System.out.println(ogd.getProductsByOrderId(2));
         
         IWarehouseDAO whd = new WarehouseDAO();
-        System.out.println(whd.getWarehouseById(2l));
+        //System.out.println(whd.getWarehouseById(2l));
+        
+        IWarehouseGoodsDAO whgd = new WarehouseGoodsDAO();
+        System.out.println(whgd.getGoodsByWarehouseId(2));
     }
    
 }

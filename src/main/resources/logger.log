@@ -1,9 +1,3 @@
-2020-12-05 11:02:36 DEBUG getTransportsByCompanyId:143 - ==>  Preparing: SELECT * FROM companies_have_transports cht LEFT JOIN transport_types tt ON (cht.transports_id = tt.id) WHERE cht.companies_id = ? 
-2020-12-05 11:02:36 DEBUG getTransportsByCompanyId:143 - ==> Parameters: 1(Long)
-2020-12-05 11:02:36 DEBUG getTransportsByCompanyId:143 - <==      Total: 3
-2020-12-05 11:02:36 DEBUG getProductsByOrderId:143 - ==>  Preparing: SELECT * FROM orders_have_goods ohg LEFT JOIN goods gs ON (gs.id = ohg.goods_id) WHERE ohg.orders_id = ? 
-2020-12-05 11:02:36 DEBUG getProductsByOrderId:143 - ==> Parameters: 2(Long)
-2020-12-05 11:02:36 DEBUG getProductsByOrderId:143 - <==      Total: 2
-2020-12-05 11:02:36 DEBUG getWarehouseById:143 - ==>  Preparing: SELECT wh.wh_name, wh.id,gds.id AS good_id,gds.price AS good_price,gds.volume AS good_volume,gds.good_name AS good_good_name FROM warehouses wh LEFT JOIN warehouses_have_goods whg ON (wh.id = whg.warehouses_id) LEFT JOIN goods gds ON (gds.id = whg.goods_id) WHERE wh.id = ? 
-2020-12-05 11:02:36 DEBUG getWarehouseById:143 - ==> Parameters: 2(Long)
-2020-12-05 11:02:36 DEBUG getWarehouseById:143 - <==      Total: 2
+2020-12-05 17:33:14 DEBUG getGoodsByWarehouseId:143 - ==>  Preparing: SELECT gds.id, gds.good_name, gds.volume, gds.price FROM warehouses_have_goods whg LEFT JOIN goods gds ON (whg.goods_id = gds.id) WHERE whg.warehouses_id = ? 
+2020-12-05 17:33:14 DEBUG getGoodsByWarehouseId:143 - ==> Parameters: 2(Long)
+2020-12-05 17:33:14 DEBUG getGoodsByWarehouseId:143 - <==      Total: 2
