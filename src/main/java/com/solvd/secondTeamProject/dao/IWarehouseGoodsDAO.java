@@ -13,6 +13,7 @@ public interface IWarehouseGoodsDAO {
 			+ "gds.id, "
 			+ "gds.good_name, "
 			+ "gds.volume, "
+			+ "gds.quantity, "
 			+ "gds.price "
 			+ "FROM warehouses_have_goods whg "
 			+ "LEFT JOIN goods gds "

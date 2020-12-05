@@ -141,7 +141,7 @@ public class App{
         //System.out.println(ctd.getTransportsByCompanyId(1l));
         
         IOrderGoodsDAO ogd = new OrderGoodsDAO();
-        //System.out.println(ogd.getProductsByOrderId(2));
+        //System.out.println(ogd.getProductsByOrderId(1));
         
         IWarehouseDAO whd = new WarehouseDAO();
         //System.out.println(whd.getWarehouseById(2l));

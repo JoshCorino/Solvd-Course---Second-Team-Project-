@@ -37,15 +37,15 @@ public class CompanyDAO implements ICompanyDAO{
 	}
 
 
-	public Company getById(long id) {
+	public Company getCompanyById(long id) {
 
 		try {
 			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 			ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
-			if(bhDao.getById(id) != null)
-				return bhDao.getById(id);
+			if(bhDao.getCompanyById(id) != null)
+				return bhDao.getCompanyById(id);
 		} catch (IOException e) {
 			log.error(e);
 		}

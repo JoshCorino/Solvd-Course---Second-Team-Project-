@@ -4,6 +4,7 @@ public class Product extends AbstractEntity{
 	private String name;
 	private double price;
 	private double volume;
+	private Long quantity;
 	
 	public Product() {
 		name="no-name";
@@ -30,8 +31,12 @@ public class Product extends AbstractEntity{
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + price + ", volume=" + volume + "]";
+		return "Product [name=" + name + ", price=" + price + ", volume=" + volume + ", quantity=" + quantity + "]";
 	}
+
+	
+	
+	
 	
 	
 }
