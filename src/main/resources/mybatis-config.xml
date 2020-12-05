@@ -20,6 +20,7 @@
  		  <mapper resource="mappers/TransportMapper.xml"/>
  		  <mapper resource="mappers/OrderMapper.xml"/>
  		  <mapper resource="mappers/ProductMapper.xml"/>
+ 		  <mapper resource="mappers/WarehouseMapper.xml"/>
  		  <mapper class="com.solvd.secondTeamProject.dao.IOrderGoodsDAO"/>
  		  <mapper class="com.solvd.secondTeamProject.dao.ICompanyTransportDAO"/>
 	</mappers>
