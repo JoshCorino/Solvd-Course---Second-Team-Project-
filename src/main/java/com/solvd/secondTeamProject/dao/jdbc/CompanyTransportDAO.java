@@ -61,7 +61,7 @@ public class CompanyTransportDAO extends MySQLDAO implements ICompanyTransportDA
 			PreparedStatement pre = con.prepareStatement(RELATE_COMPANY_AND_TRANSPORT, Statement.RETURN_GENERATED_KEYS);
 			pre.setLong(1,c.getId());
 			pre.setLong(2,t.getId());
-			pre.setDouble(2,t.getCapacity());
+			pre.setDouble(3,t.getCapacity());
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Company an transport related");

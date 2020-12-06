@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.model.Product;
 import com.solvd.secondTeamProject.model.Transport;
+import com.solvd.secondTeamProject.model.Warehouse;
 
 public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 
@@ -20,7 +22,8 @@ public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 													+ "from warehouses_have_goods w "
 													+ "join goods g on (g.id=w.goods_id)"
 													+ "where w.warehouses_id=?";
-	
+	private final String RELATE_WAREHOUSE_AND_GOODS= "insert into warehouses_have_goods(goods_id,warehouses_id) values(?,?)";
+
 	private Logger log = LogManager.getLogger(WarehouseGoodsDAO.class);
 
 	
@@ -49,6 +52,28 @@ public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 			cp.releaseConnection(con);
 		}
         return result;
+	}
+
+
+	@Override
+	public void relate(Warehouse w, Product p) {
+		Connection con = null;
+        try {
+			con = cp.getConnection();
+			PreparedStatement pre = con.prepareStatement(RELATE_WAREHOUSE_AND_GOODS, Statement.RETURN_GENERATED_KEYS);
+			pre.setLong(1,p.getId());
+			pre.setLong(2,w.getId());
+			int rset = pre.executeUpdate();
+			if(rset==1)
+				log.info("Warehouse and Product related");
+
+		} catch (SQLException e) {
+			log.error("SQL Exception, can not insert",e);
+		} catch (InterruptedException e) {
+			log.error("Cant get a connection",e);
+		}finally{
+			cp.releaseConnection(con);
+		}
 	}
 
 }

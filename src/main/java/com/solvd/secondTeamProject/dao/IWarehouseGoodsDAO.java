@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
 import com.solvd.secondTeamProject.model.Product;
+import com.solvd.secondTeamProject.model.Warehouse;
 
 public interface IWarehouseGoodsDAO {
 	
@@ -21,4 +22,6 @@ public interface IWarehouseGoodsDAO {
 			+ "WHERE whg.warehouses_id = #{id}")
 	@ResultMap("com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap")
 	public List<Product> getGoodsByWarehouseId(long id);
+	
+	public void relate(Warehouse w, Product p);
 }

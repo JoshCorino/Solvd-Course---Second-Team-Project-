@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
 import com.solvd.secondTeamProject.model.Transport;
+import com.solvd.secondTeamProject.model.Warehouse;
 
 public interface IWarehouseTransportsDAO {
 	
@@ -18,4 +19,5 @@ public interface IWarehouseTransportsDAO {
 			+ "WHERE at.warehouses_id = #{id}")
 	@ResultMap("com.solvd.secondTeamProject.dao.ITransportDAO.TransportResultMap")
 	public List<Transport> getTransportsByWarehouseId(long id);
+	public void relate(Warehouse w, Transport t);
 }

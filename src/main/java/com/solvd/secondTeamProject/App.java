@@ -16,7 +16,7 @@ import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
-import com.solvd.secondTeamProject.dao.mybatis.*;
+import com.solvd.secondTeamProject.dao.jdbc.*;
 import com.solvd.secondTeamProject.model.*;
 
 public class App{
@@ -79,34 +79,47 @@ public class App{
 	public static void main( String[] args ){
     	Logger log = LogManager.getLogger(App.class);
 
-//    	Company company = new Company();
-//    	company.setName("DHL");
-//
-//    	Order order = new Order();
-//    	order.setDate(new Date(0));
-//
-//    	Product product = new Product();
-//    	product.setName("Tv");
-//    	product.setPrice(100);
-//    	product.setVolume(10);
-//    	
-//    	Transport transport = new Transport();
-//    	transport.setName("train");
-//    	
-//    	Warehouse warehouse = new Warehouse();
-//    	warehouse.setName("Warehouse");
-//        	
-//        CompanyDAO cDAO = new CompanyDAO();
-//        OrderDAO oDAO = new OrderDAO();
-//        ProductDAO pDAO = new ProductDAO();
-//        TransportDAO tDAO = new TransportDAO();
-//        WarehouseDAO wDAO = new WarehouseDAO();
-//        
-//        cDAO.save(company);
-//        oDAO.save(order, 1);
-//        pDAO.save(product);
-//        tDAO.save(transport);
-//        wDAO.save(warehouse);
+    	Company company = new Company();
+    	company.setName("DHL");
+
+    	Order order = new Order();
+    	order.setDate(new Date(0));
+
+    	Product product = new Product();
+    	product.setName("Tv");
+    	product.setPrice(100);
+    	product.setVolume(10);
+    	
+    	Transport transport = new Transport();
+    	transport.setName("train");
+    	transport.setCapacity(123d);
+    	
+    	Warehouse warehouse = new Warehouse();
+    	warehouse.setName("Warehouse");
+        	
+        CompanyDAO cDAO = new CompanyDAO();
+        OrderDAO oDAO = new OrderDAO();
+        ProductDAO pDAO = new ProductDAO();
+        TransportDAO tDAO = new TransportDAO();
+        WarehouseDAO wDAO = new WarehouseDAO();
+        
+        cDAO.save(company);
+        oDAO.save(order, company);
+        pDAO.save(product);
+        tDAO.save(transport);
+        wDAO.save(warehouse);
+        
+        WarehouseGoodsDAO wgDAO = new WarehouseGoodsDAO();
+        WarehouseTransportsDAO wtDAO = new WarehouseTransportsDAO();
+        CompanyTransportDAO ctDAO = new CompanyTransportDAO();
+        
+        wgDAO.relate(warehouse, product);
+        wtDAO.relate(warehouse, transport);
+        ctDAO.relate(company, transport);
+        
+        log.info(wgDAO.getGoodsByWarehouseId(1));
+        log.info(wtDAO.getTransportsByWarehouseId(1));
+        log.info(ctDAO.getTransportsByCompanyId(1));
 //        
 //        Company companyGetted = cDAO.getById(1);
 //    	log.info(companyGetted.toString());
@@ -131,39 +144,7 @@ public class App{
 //        tDAO.remove(1);
 //        wDAO.remove(1);
         
-        ICompanyDAO cd = new CompanyDAO();
-        //System.out.println(cd.getAll());
-        //System.out.println(cd.getCompanyById(1));
-        //Company newCompany = new Company();
-        //newCompany.setName("Amazon");
-        Company existing = cd.getCompanyById(2);
-        //cd.save(newCompany);
-        //System.out.println(cd.getAll());
-        
-        ITransportDAO td = new TransportDAO();
-        //System.out.println(td.getById(1));
-        
-        ICompanyTransportDAO ctd = new CompanyTransportDAO();
-        //System.out.println(ctd.getTransportsByCompanyId(1l));
-        Transport t = td.getById(1);
-        t.setCapacity(200.0);
-        
-        //ctd.relate(existing, t);
-        
-        IOrderGoodsDAO ogd = new OrderGoodsDAO();
-        //System.out.println(ogd.getProductsByOrderId(1));
-        
-        IWarehouseDAO whd = new WarehouseDAO();
-        //System.out.println(whd.getWarehouseById(2l));
-        
-        IWarehouseGoodsDAO whgd = new WarehouseGoodsDAO();
-        //System.out.println(whgd.getGoodsByWarehouseId(2));
-        
-        IWarehouseTransportsDAO whtd = new WarehouseTransportsDAO();
-        //System.out.println(whtd.getTransportsByWarehouseId(2));
-        
-        IProductDAO pd = new ProductDAO();
-        //System.out.println(pd.getProductById(2));
+    	
     }
    
 }

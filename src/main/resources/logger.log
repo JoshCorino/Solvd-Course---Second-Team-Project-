@@ -1,9 +1,11 @@
-2020-12-05 20:38:14 DEBUG getCompanyById:143 - ==>  Preparing: SELECT * FROM companies com WHERE com.id = ? 
-2020-12-05 20:38:14 DEBUG getCompanyById:143 - ==> Parameters: 2(Long)
-2020-12-05 20:38:14 DEBUG getCompanyById:143 - <==      Total: 1
-2020-12-05 20:38:15 DEBUG getById:143 - ==>  Preparing: SELECT * FROM transport_types WHERE id = ? 
-2020-12-05 20:38:15 DEBUG getById:143 - ==> Parameters: 1(Long)
-2020-12-05 20:38:15 DEBUG getById:143 - <==      Total: 1
-2020-12-05 20:38:15 DEBUG relate:143 - ==>  Preparing: INSERT INTO companies_have_transports (companies_id, transports_id, capacity) VALUES (?, ?, ?) 
-2020-12-05 20:38:15 DEBUG relate:143 - ==> Parameters: 2(Long), 1(Long), 200.0(Double)
-2020-12-05 20:38:15 DEBUG relate:143 - <==    Updates: 1
+2020-12-06 16:48:14 INFO  CompanyDAO:38 - Company saved
+2020-12-06 16:48:14 INFO  OrderDAO:38 - Order saved
+2020-12-06 16:48:14 INFO  ProductDAO:34 - Product saved
+2020-12-06 16:48:14 INFO  TransportDAO:31 - Transport saved
+2020-12-06 16:48:14 INFO  WarehouseDAO:32 - Warehouse saved
+2020-12-06 16:48:14 INFO  WarehouseGoodsDAO:68 - Warehouse and Product related
+2020-12-06 16:48:14 INFO  WarehouseTransportsDAO:66 - Warehouse and Transport related
+2020-12-06 16:48:14 INFO  CompanyTransportDAO:67 - Company an transport related
+2020-12-06 16:48:14 INFO  App:120 - [Product [name=Tv, price=100.0, volume=10.0, quantity=null]]
+2020-12-06 16:48:14 INFO  App:121 - [Transport [name=train null]]
+2020-12-06 16:48:14 INFO  App:122 - [Transport [name=train 123.0]]
