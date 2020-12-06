@@ -16,7 +16,7 @@ import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
-import com.solvd.secondTeamProject.dao.jdbc.*;
+import com.solvd.secondTeamProject.dao.mybatis.*;
 import com.solvd.secondTeamProject.model.*;
 
 public class App{
@@ -79,48 +79,48 @@ public class App{
 	public static void main( String[] args ){
     	Logger log = LogManager.getLogger(App.class);
 
-    	Company company = new Company();
-    	company.setName("DHL");
-
-    	Order order = new Order();
-    	order.setDate(new Date(0));
-
-    	Product product = new Product();
-    	product.setName("Tv");
-    	product.setPrice(100);
-    	product.setVolume(10);
-    	product.setQuantity(2l);
-    	
-    	Transport transport = new Transport();
-    	transport.setName("train");
-    	transport.setCapacity(123d);
-    	
-    	Warehouse warehouse = new Warehouse();
-    	warehouse.setName("Warehouse");
-        	
-        CompanyDAO cDAO = new CompanyDAO();
-        OrderDAO oDAO = new OrderDAO();
-        ProductDAO pDAO = new ProductDAO();
-        TransportDAO tDAO = new TransportDAO();
-        WarehouseDAO wDAO = new WarehouseDAO();
-        
-        cDAO.save(company);
-        oDAO.save(order, company);
-        pDAO.save(product);
-        tDAO.save(transport);
-        wDAO.save(warehouse);
-        
-        WarehouseGoodsDAO wgDAO = new WarehouseGoodsDAO();
-        WarehouseTransportsDAO wtDAO = new WarehouseTransportsDAO();
-        CompanyTransportDAO ctDAO = new CompanyTransportDAO();
-        
-        wgDAO.relate(warehouse, product);
-        wtDAO.relate(warehouse, transport);
-        ctDAO.relate(company, transport);
-        
-        log.info(wgDAO.getGoodsByWarehouseId(1));
-        log.info(wtDAO.getTransportsByWarehouseId(1));
-        log.info(ctDAO.getTransportsByCompanyId(1));
+//    	Company company = new Company();
+//    	company.setName("DHL");
+//
+//    	Order order = new Order();
+//    	order.setDate(new Date(0));
+//
+//    	Product product = new Product();
+//    	product.setName("Tv");
+//    	product.setPrice(100);
+//    	product.setVolume(10);
+//    	product.setQuantity(2l);
+//    	
+//    	Transport transport = new Transport();
+//    	transport.setName("train");
+//    	transport.setCapacity(123d);
+//    	
+//    	Warehouse warehouse = new Warehouse();
+//    	warehouse.setName("Warehouse");
+//        	
+//        CompanyDAO cDAO = new CompanyDAO();
+//        OrderDAO oDAO = new OrderDAO();
+//        ProductDAO pDAO = new ProductDAO();
+//        TransportDAO tDAO = new TransportDAO();
+//        WarehouseDAO wDAO = new WarehouseDAO();
+//        
+//        cDAO.save(company);
+//        oDAO.save(order, company);
+//        pDAO.save(product);
+//        tDAO.save(transport);
+//        wDAO.save(warehouse);
+//        
+//        WarehouseGoodsDAO wgDAO = new WarehouseGoodsDAO();
+//        WarehouseTransportsDAO wtDAO = new WarehouseTransportsDAO();
+//        CompanyTransportDAO ctDAO = new CompanyTransportDAO();
+//        
+//        wgDAO.relate(warehouse, product);
+//        wtDAO.relate(warehouse, transport);
+//        ctDAO.relate(company, transport);
+//        
+//        log.info(wgDAO.getGoodsByWarehouseId(1));
+//        log.info(wtDAO.getTransportsByWarehouseId(1));
+//        log.info(ctDAO.getTransportsByCompanyId(1));
 //        
 //        Company companyGetted = cDAO.getById(1);
 //    	log.info(companyGetted.toString());
@@ -144,8 +144,6 @@ public class App{
 //        pDAO.remove(1);
 //        tDAO.remove(1);
 //        wDAO.remove(1);
-        
-    	
     }
    
 }

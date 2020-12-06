@@ -1,11 +1,3 @@
-2020-12-06 16:58:34 INFO  CompanyDAO:38 - Company saved
-2020-12-06 16:58:34 INFO  OrderDAO:38 - Order saved
-2020-12-06 16:58:34 INFO  ProductDAO:34 - Product saved
-2020-12-06 16:58:34 INFO  TransportDAO:31 - Transport saved
-2020-12-06 16:58:34 INFO  WarehouseDAO:32 - Warehouse saved
-2020-12-06 16:58:34 INFO  WarehouseGoodsDAO:70 - Warehouse and Product related
-2020-12-06 16:58:34 INFO  WarehouseTransportsDAO:66 - Warehouse and Transport related
-2020-12-06 16:58:34 INFO  CompanyTransportDAO:67 - Company an transport related
-2020-12-06 16:58:34 INFO  App:121 - [Product [name=Tv, price=100.0, volume=10.0, quantity=2]]
-2020-12-06 16:58:34 INFO  App:122 - [Transport [name=train null]]
-2020-12-06 16:58:34 INFO  App:123 - [Transport [name=train 123.0]]
+2020-12-06 19:51:48 DEBUG getGoodsByWarehouseId:143 - ==>  Preparing: SELECT gds.id, gds.good_name, gds.volume, whg.quantity, gds.price FROM warehouses_have_goods whg LEFT JOIN goods gds ON (whg.goods_id = gds.id) WHERE whg.warehouses_id = ? 
+2020-12-06 19:51:48 DEBUG getGoodsByWarehouseId:143 - ==> Parameters: 1(Long)
+2020-12-06 19:51:48 DEBUG getGoodsByWarehouseId:143 - <==      Total: 2

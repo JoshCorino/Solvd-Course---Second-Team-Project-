@@ -11,9 +11,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.model.Product;
+import com.solvd.secondTeamProject.model.Warehouse;
 
 public class WarehouseGoodsDAO implements IWarehouseGoodsDAO {
 	private Logger log = LogManager.getLogger(WarehouseGoodsDAO.class);
@@ -31,6 +31,19 @@ public class WarehouseGoodsDAO implements IWarehouseGoodsDAO {
 			log.error(e);
 		}
 		return new ArrayList<Product>();
+	}
+
+	@Override
+	public void relate(Warehouse w, Product p) {
+		try {
+			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+			IWarehouseGoodsDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IWarehouseGoodsDAO.class);
+			bhDao.relate(w, p);
+		} catch (IOException e) {
+			log.error(e);
+		}
+		
 	}
 
 }

@@ -2,9 +2,12 @@ package com.solvd.secondTeamProject.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
+import com.solvd.secondTeamProject.model.Product;
 import com.solvd.secondTeamProject.model.Transport;
 import com.solvd.secondTeamProject.model.Warehouse;
 
@@ -19,5 +22,11 @@ public interface IWarehouseTransportsDAO {
 			+ "WHERE at.warehouses_id = #{id}")
 	@ResultMap("com.solvd.secondTeamProject.dao.ITransportDAO.TransportResultMap")
 	public List<Transport> getTransportsByWarehouseId(long id);
-	public void relate(Warehouse w, Transport t);
+	
+	@Insert("INSERT INTO "
+			+ "allowed_transports "
+			+ "(warehouses_id, transport_type_id) "
+			+ "VALUES "
+			+ "(#{wh.id}, #{tr.id})")
+	public void relate(@Param("wh") Warehouse w, @Param("tr") Transport t);
 }

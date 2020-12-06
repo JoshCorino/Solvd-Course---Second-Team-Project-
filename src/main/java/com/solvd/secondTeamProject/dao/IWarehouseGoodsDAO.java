@@ -2,6 +2,8 @@ package com.solvd.secondTeamProject.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,7 +16,7 @@ public interface IWarehouseGoodsDAO {
 			+ "gds.id, "
 			+ "gds.good_name, "
 			+ "gds.volume, "
-			+ "gds.quantity, "
+			+ "whg.quantity, "
 			+ "gds.price "
 			+ "FROM warehouses_have_goods whg "
 			+ "LEFT JOIN goods gds "
@@ -23,5 +25,10 @@ public interface IWarehouseGoodsDAO {
 	@ResultMap("com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap")
 	public List<Product> getGoodsByWarehouseId(long id);
 	
-	public void relate(Warehouse w, Product p);
+	@Insert("INSERT INTO "
+			+ "warehouses_have_goods "
+			+ "(goods_id, warehouses_id, quantity) "
+			+ "VALUES "
+			+ "(#{pr.id}, #{wh.id}, #{pr.quantity})")
+	public void relate(@Param("wh") Warehouse w, @Param("pr") Product p);
 }
