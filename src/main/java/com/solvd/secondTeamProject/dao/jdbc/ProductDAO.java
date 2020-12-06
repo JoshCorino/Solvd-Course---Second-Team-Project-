@@ -49,7 +49,7 @@ public class ProductDAO extends MySQLDAO implements IProductDAO{
 
 	
 	@Override
-	public Product getById(long id) {
+	public Product getProductById(long id) {
 		Product p = new Product();
 		Connection con = null;
 		try {
@@ -91,5 +91,7 @@ public class ProductDAO extends MySQLDAO implements IProductDAO{
 			cp.releaseConnection(con);
 		}
 	}
+
+
 
 }

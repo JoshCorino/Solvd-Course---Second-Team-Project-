@@ -46,7 +46,7 @@ public class WarehouseDAO extends MySQLDAO implements IWarehouseDAO{
 	}
 
 	@Override
-	public Warehouse getById(long id) {
+	public Warehouse getWarehouseById(long id) {
 		Warehouse w = new Warehouse();
 		Connection con = null;
 		try {

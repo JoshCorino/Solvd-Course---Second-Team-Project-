@@ -26,12 +26,12 @@ public class OrderDAO extends MySQLDAO implements IOrderDAO{
 	private Logger log = LogManager.getLogger(OrderDAO.class);
 	
 	
-	public Order save(Order o, long companiesId) {
+	public Order save(Order o, Company c) {
 		Connection con = null;
         try {
 			con = cp.getConnection();
 			PreparedStatement pre = con.prepareStatement(SAVE_ORDER, Statement.RETURN_GENERATED_KEYS);
-			pre.setLong(1,companiesId);
+			pre.setLong(1,c.getId());
 			pre.setDate(2,o.getDate());
 			int rset = pre.executeUpdate();
 			if(rset==1)
@@ -52,7 +52,7 @@ public class OrderDAO extends MySQLDAO implements IOrderDAO{
 	}
 	
 	@Override
-	public Order getById(long id) {
+	public Order getOrderById(long id) {
 		Order o = new Order();
 		Connection con = null;
 		try {
@@ -118,10 +118,6 @@ public class OrderDAO extends MySQLDAO implements IOrderDAO{
         return result;
 	}
 
-	@Override
-	public Order save(Order g) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

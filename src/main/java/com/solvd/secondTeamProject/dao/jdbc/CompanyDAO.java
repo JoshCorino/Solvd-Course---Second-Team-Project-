@@ -49,7 +49,7 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 	}
 
 	@Override
-	public Company getById(long id) {
+	public Company getCompanyById(long id) {
 		Company c = new Company();
 		Connection con = null;
 		try {
@@ -95,5 +95,6 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
