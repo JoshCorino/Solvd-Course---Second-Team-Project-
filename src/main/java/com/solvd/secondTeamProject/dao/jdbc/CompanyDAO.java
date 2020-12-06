@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,10 +15,12 @@ import org.apache.logging.log4j.Logger;
 
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.model.Company;
+import com.solvd.secondTeamProject.model.Order;
 
 public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 
 	private final String GET_COMPANY= "select * from companies where id=?";
+	private final String GET_COMPANIES= "select * from companies";
 	private final String REMOVE_COMPANY= "delete from companies where id=?";
 	private final String SAVE_COMPANY= "insert into companies(name) values(?)";
 	private Logger log = LogManager.getLogger(CompanyDAO.class);
@@ -92,8 +95,28 @@ public class CompanyDAO extends MySQLDAO implements ICompanyDAO{
 
 	@Override
 	public List<Company> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Company> result = new ArrayList<Company>();
+		Connection con = null;
+		try {
+			con = cp.getConnection();
+			PreparedStatement pre = con.prepareStatement(GET_COMPANIES);
+			ResultSet rset = pre.executeQuery();
+			while (rset.next()) {
+				Company c =new Company();
+				c.setName(rset.getString("name"));
+				c.setId(rset.getLong("id"));
+				result.add(c);
+			}
+        } catch (SQLException e) {
+			log.error("SQL Exception, can not get",e);
+		} catch (InterruptedException e) {
+			log.error("Cant get a connection",e);
+		}finally{
+			cp.releaseConnection(con);
+		}
+        return result;
+
 	}
 
 
