@@ -11,6 +11,10 @@
 .sts4-cache
 
 
+#DATABASE PROPERTIES
+database.properties
+
+
 # Created by https://www.gitignore.io/api/git,java,maven,eclipse,windows
 
 ### Eclipse ###
