@@ -1,4 +1,4 @@
-package com.solvd.secondTeamProject.dao.jdbc.services;
+package com.solvd.secondTeamProject.dao.services;
 
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
