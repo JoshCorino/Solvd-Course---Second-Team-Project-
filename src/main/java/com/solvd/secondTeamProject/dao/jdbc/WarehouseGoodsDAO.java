@@ -18,11 +18,11 @@ import com.solvd.secondTeamProject.model.Warehouse;
 
 public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 
-	private final String GET_GOODS_BY_WAREHOUSE_ID=   "select g.* "
+	private final String GET_GOODS_BY_WAREHOUSE_ID=   "select g.*, w.quantity "
 													+ "from warehouses_have_goods w "
 													+ "join goods g on (g.id=w.goods_id)"
 													+ "where w.warehouses_id=?";
-	private final String RELATE_WAREHOUSE_AND_GOODS= "insert into warehouses_have_goods(goods_id,warehouses_id) values(?,?)";
+	private final String RELATE_WAREHOUSE_AND_GOODS= "insert into warehouses_have_goods(goods_id,warehouses_id,quantity) values(?,?,?)";
 
 	private Logger log = LogManager.getLogger(WarehouseGoodsDAO.class);
 
@@ -42,6 +42,7 @@ public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 				p.setId(rset.getLong("id"));
 				p.setPrice(rset.getDouble("price"));
 				p.setVolume(rset.getDouble("volume"));
+				p.setQuantity(rset.getLong("quantity"));
 				result.add(p);
 			}
         } catch (SQLException e) {
@@ -63,6 +64,7 @@ public class WarehouseGoodsDAO extends MySQLDAO implements IWarehouseGoodsDAO{
 			PreparedStatement pre = con.prepareStatement(RELATE_WAREHOUSE_AND_GOODS, Statement.RETURN_GENERATED_KEYS);
 			pre.setLong(1,p.getId());
 			pre.setLong(2,w.getId());
+			pre.setLong(3,p.getQuantity());			
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Warehouse and Product related");

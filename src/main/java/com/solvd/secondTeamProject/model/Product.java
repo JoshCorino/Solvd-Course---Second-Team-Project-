@@ -25,6 +25,15 @@ public class Product extends AbstractEntity{
 	public double getVolume() {
 		return volume;
 	}
+	
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
+
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}

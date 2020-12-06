@@ -89,6 +89,7 @@ public class App{
     	product.setName("Tv");
     	product.setPrice(100);
     	product.setVolume(10);
+    	product.setQuantity(2l);
     	
     	Transport transport = new Transport();
     	transport.setName("train");
