@@ -1,5 +1,6 @@
 package com.solvd.secondTeamProject.algorithm;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Product;
@@ -7,7 +8,7 @@ import com.solvd.secondTeamProject.model.Transport;
 
 public class ResultRepresentation {
 	private Transport transport;
-	private List<ProductShipping> productsShipped;
+	private List<ProductShipping> productsShipped = new ArrayList<ProductShipping>();
 	
 	public String toString() {
 		return "ResultRepresentation [transport="+transport+", productsShipped="+productsShipped;
@@ -29,19 +30,19 @@ public class ResultRepresentation {
 	
 	
 	private class ProductShipping{
-		private Company c;
-		private Product p;
+		private Company company;
+		private Product product;
 		
 		public String toString() {
-			return "ProductShipping [company="+c+",product="+p;
+			return "ProductShipping [company="+company+"product="+product;
 		}
 		
 		//GETTERS
-		public Company getC() {return c;}
-		public Product getP() {return p;}
+		public Company getC() {return company;}
+		public Product getP() {return product;}
 		//SETTERS
-		public void setC(Company c) {this.c = c;}
-		public void setP(Product p) {this.p = p;}
+		public void setC(Company company) {this.company = company;}
+		public void setP(Product product) {this.product = product;}
 		
 	}
 }

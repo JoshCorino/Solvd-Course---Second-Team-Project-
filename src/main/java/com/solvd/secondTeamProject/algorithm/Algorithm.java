@@ -2,6 +2,11 @@ package com.solvd.secondTeamProject.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.solvd.secondTeamProject.App;
 import com.solvd.secondTeamProject.dao.jdbc.OrderDAO;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Order;
@@ -10,13 +15,12 @@ import com.solvd.secondTeamProject.model.Transport;
 import com.solvd.secondTeamProject.model.Warehouse;
 
 public class Algorithm {
-	private static OrderDAO oDAO = new OrderDAO();
+	private static Logger log = LogManager.getLogger(Algorithm.class);
 	
 	public static List<ResultRepresentation> bestTransports(List<Order> orders, Company company, List<Warehouse> warehouses){
 		List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
 		boolean foundTransport = false;
 		for (Order o : orders) {
-			oDAO.save(o,company);
 			List<Product> goods = o.getGoods();
 			for (Product g : goods) {
 				foundTransport = false;
@@ -58,9 +62,12 @@ public class Algorithm {
 					if (foundTransport)
 						break;
 				}
+				if (!foundTransport)
+					log.info("There is not a transport available for this good: "+g.getName());
 			}
 			
 		}
+		company.addOrders(orders);
 		return bestTransports;
 	}
 }

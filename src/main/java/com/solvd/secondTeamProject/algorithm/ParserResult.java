@@ -10,12 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.secondTeamProject.App;
 
 public class ParserResult {
-	private Logger log = LogManager.getLogger(App.class);
+	private static Logger log = LogManager.getLogger(App.class);
 	
-	public void parserResult(Object bestTransports, String filePath) {
+	public static void parserResult(Object bestTransports, String filePath) {
 		ObjectMapper obj = new ObjectMapper();
 		try {
-			obj.writeValue(new File("src/main/resources/BestTransports.json"), bestTransports);
+			obj.writeValue(new File(filePath), bestTransports);
 		} catch (IOException e) {
 			log.error(e);
 		}
