@@ -24,6 +24,7 @@ public interface IOrderDAO {
 	@Delete("DELETE FROM orders WHERE id = #{id}")
 	void remove(long id);
 
+	@Select("SELECT * FROM orders WHERE companies_id = #{id}")
 	List<Order> getOrdersByCompanyId(long id);
 	
 

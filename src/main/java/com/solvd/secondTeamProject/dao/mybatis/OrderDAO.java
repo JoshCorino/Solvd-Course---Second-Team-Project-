@@ -1,30 +1,29 @@
 package com.solvd.secondTeamProject.dao.mybatis;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import com.solvd.secondTeamProject.dao.IOrderDAO;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Order;
 
 public class OrderDAO extends MyBatisAbstractDAO implements IOrderDAO{
-	private Logger log = LogManager.getLogger(CompanyDAO.class);
 
 	@Override
 	public Order getOrderById(long id) {
 		IOrderDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IOrderDAO.class);
-		if(bhDao.getOrderById(id) != null)
-			return bhDao.getOrderById(id);
+		Order o = bhDao.getOrderById(id);
+		if(o != null)
+			return o;
 		return new Order();
 	}
 
 	@Override
 	public void remove(long id) {
-		// TODO Auto-generated method stub
-		
+		IOrderDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IOrderDAO.class);
+		bhDao.remove(id);
 	}
 
 
@@ -37,8 +36,11 @@ public class OrderDAO extends MyBatisAbstractDAO implements IOrderDAO{
 
 	@Override
 	public List<Order> getOrdersByCompanyId(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		IOrderDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IOrderDAO.class);
+		List<Order> lo = bhDao.getOrdersByCompanyId(id);
+		if(lo != null)
+			return lo;
+		return new ArrayList<Order>();
 	}
 
 }

@@ -1,36 +1,33 @@
 package com.solvd.secondTeamProject.dao.mybatis;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.model.Product;
 
 public class ProductDAO extends MyBatisAbstractDAO implements IProductDAO{
-	private Logger log = LogManager.getLogger(ProductDAO.class);
 
 	@Override
 	public Product save(Product g) {
-		// TODO Auto-generated method stub
-		return null;
+		IProductDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IProductDAO.class);
+		bhDao.save(g);
+		return g;
 	}
 
 
 
 	@Override
 	public void remove(long id) {
-		// TODO Auto-generated method stub
-		
+		IProductDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IProductDAO.class);
+		bhDao.remove(id);
 	}
-
 
 
 	@Override
 	public Product getProductById(long id) {
 		IProductDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IProductDAO.class);
-		if(bhDao.getProductById(id) != null)
-			return bhDao.getProductById(id);
+		Product p = bhDao.getProductById(id);
+		if(p != null)
+			return p;
 		return new Product();
 	}
 

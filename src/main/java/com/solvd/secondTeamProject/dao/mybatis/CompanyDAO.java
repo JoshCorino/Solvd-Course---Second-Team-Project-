@@ -4,15 +4,10 @@ package com.solvd.secondTeamProject.dao.mybatis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.model.Company;
 
 public class CompanyDAO extends MyBatisAbstractDAO implements ICompanyDAO{
-	private Logger log = LogManager.getLogger(CompanyDAO.class);
-
 
 	public Company save(Company g) {
 		ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
@@ -22,8 +17,9 @@ public class CompanyDAO extends MyBatisAbstractDAO implements ICompanyDAO{
 
 	public Company getCompanyById(long id) {
 		ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
-		if(bhDao.getCompanyById(id) != null)
-			return bhDao.getCompanyById(id);
+		Company c = bhDao.getCompanyById(id);
+		if(c != null)
+			return c;
 		return new Company();
 	}
 
@@ -35,8 +31,9 @@ public class CompanyDAO extends MyBatisAbstractDAO implements ICompanyDAO{
 	@Override
 	public List<Company> getAll() {
 		ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
-		if(bhDao.getAll() != null)
-			return bhDao.getAll();
+		List<Company> lc = bhDao.getAll();
+		if(lc != null)
+			return lc;
 		return new ArrayList<Company>();
 	}
 
