@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.solvd.secondTeamProject.algorithm.Algorithm;
 import com.solvd.secondTeamProject.algorithm.ResultRepresentation;
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
@@ -99,24 +100,19 @@ public class App{
 //        tDAO.remove(1);
 //        wDAO.remove(1);
     	
+
     	
-    	OrderDAO oDAO = new OrderDAO();
-    	//List<Order> orders = oDAO.getOrders();
-    	
-    	System.out.println(oDAO.getOrderById(1));
-    	
-    	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
     	//bestTransports = bestTransports(orders,1);
- 
+     	List<Order> orders = null;
+    	WarehouseDAO wDAO = new WarehouseDAO();
+		List<Warehouse> warehouses = wDAO.getAll();
     	
-    	//Json
-    	ObjectMapper obj = new ObjectMapper();
-    	try {
-    		obj.writeValue(new File("src/main/resources/BestTransports.json"), bestTransports);
-		} catch (IOException e) {
-			log.error(e);
-		}
-    	
+		CompanyDAO cDAO = new CompanyDAO();
+		Company company = cDAO.getCompanyById(1);
+		
+    	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
+    	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
+    	   	
     }
    
 }
