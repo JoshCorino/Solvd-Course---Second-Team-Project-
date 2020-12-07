@@ -11,8 +11,7 @@ public class CompanyDAO extends MyBatisAbstractDAO implements ICompanyDAO{
 
 	public Company save(Company g) {
 		ICompanyDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ICompanyDAO.class);
-		bhDao.save(g);
-		return g;
+		return bhDao.save(g);
 	}
 
 	public Company getCompanyById(long id) {

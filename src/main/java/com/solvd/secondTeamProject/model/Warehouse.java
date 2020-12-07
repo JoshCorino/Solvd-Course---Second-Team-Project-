@@ -30,7 +30,8 @@ public class Warehouse extends AbstractEntity{
 	
 	@Override
 	public String toString() {
-		return "Warehouse [name=" + name + ", allowedTransports=" + allowedTransports + ", goods=" + goods + "]";
+		return "Warehouse [name=" + name + ", allowedTransports=" + allowedTransports + ", goods=" + goods + ", id="
+				+ id + "]";
 	}
 	
 	public ArrayList<Transport> getTransports() {

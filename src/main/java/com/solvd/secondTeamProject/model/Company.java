@@ -45,7 +45,7 @@ public class Company extends AbstractEntity{
 	
 	@Override
 	public String toString() {
-		return "Company [name=" + name + ", orders=" + orders + ", transports=" + transports + "]";
+		return "Company [name=" + name + ", orders=" + orders + ", transports=" + transports + ", id=" + id + "]";
 	}
 	
 }

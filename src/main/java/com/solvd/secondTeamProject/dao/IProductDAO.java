@@ -10,7 +10,7 @@ import com.solvd.secondTeamProject.model.Product;
 
 public interface IProductDAO{
 
-	@Insert("INSERT INTO goods "
+	@Select("INSERT INTO goods "
 			+ "(price, volume, good_name) "
 			+ "VALUES (#{pro.price}, #{pro.volume}, #{pro.name})")
 	Product save(@Param("pro") Product p);

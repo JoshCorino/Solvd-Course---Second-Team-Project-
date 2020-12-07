@@ -30,8 +30,7 @@ public class OrderDAO extends MyBatisAbstractDAO implements IOrderDAO{
 	@Override
 	public Order save(Order g, Company c) {
 		IOrderDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IOrderDAO.class);
-		bhDao.save(g, c);
-		return g;
+		return bhDao.save(g, c);
 	}
 
 	@Override

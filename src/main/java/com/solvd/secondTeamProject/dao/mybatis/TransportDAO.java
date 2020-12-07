@@ -10,8 +10,7 @@ public class TransportDAO extends MyBatisAbstractDAO implements ITransportDAO{
 	@Override
 	public Transport save(Transport g) {
 		ITransportDAO bhDao = sqlSessionFactory.openSession(true).getMapper(ITransportDAO.class);
-		bhDao.save(g);
-		return g;
+		return bhDao.save(g);
 	}
 
 	@Override

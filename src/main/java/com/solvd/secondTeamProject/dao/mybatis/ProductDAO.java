@@ -9,8 +9,7 @@ public class ProductDAO extends MyBatisAbstractDAO implements IProductDAO{
 	@Override
 	public Product save(Product g) {
 		IProductDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IProductDAO.class);
-		bhDao.save(g);
-		return g;
+		return bhDao.save(g);
 	}
 
 

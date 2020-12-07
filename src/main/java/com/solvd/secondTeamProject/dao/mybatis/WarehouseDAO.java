@@ -15,8 +15,7 @@ public class WarehouseDAO extends MyBatisAbstractDAO implements IWarehouseDAO{
 	@Override
 	public Warehouse save(Warehouse g) {
 		IWarehouseDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IWarehouseDAO.class);
-		bhDao.save(g);
-		return g;
+		return bhDao.save(g);
 	}
 
 

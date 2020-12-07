@@ -21,7 +21,7 @@ public class Transport extends AbstractEntity {
 	}
 	@Override
 	public String toString() {
-		return "Transport [name=" + name + " " + capacity + "]";
+		return "Transport [name=" + name + ", capacity=" + capacity + ", id=" + id + "]";
 	}
 	
 }

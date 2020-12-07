@@ -12,7 +12,7 @@ import com.solvd.secondTeamProject.model.Warehouse;
 
 public interface IWarehouseDAO{
 
-	@Insert("INSERT INTO warehouses "
+	@Select("INSERT INTO warehouses "
 			+ "(wh_name) "
 			+ "VALUES (#{wh.name})")
 	Warehouse save(@Param("wh") Warehouse w);
