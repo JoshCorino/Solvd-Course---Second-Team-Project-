@@ -1,5 +1,7 @@
 package com.solvd.secondTeamProject.dao.services;
 
+import java.util.List;
+
 import com.solvd.secondTeamProject.dao.IOrderDAO;
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.jdbc.OrderDAO;
@@ -16,5 +18,10 @@ public class OrderService {
 			pDAO.save(p);
 		}
 		return oDAO.save(c,companyId);
+	}
+
+	public List<Product> getGoodsByOrderId(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

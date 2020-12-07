@@ -1,5 +1,7 @@
 package com.solvd.secondTeamProject.dao.services;
 
+import java.util.List;
+
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
@@ -23,5 +25,13 @@ public class WarehouseService {
 			pDAO.save(p);
 		}
 		return wDAO.save(w);
+	}
+	
+	public List<Transport> getTransportsAllowedByWarehouseId(long id){
+		return null;
+	}
+	
+	public List<Product> getGoodsByWarehouseId(long id){
+		return null;
 	}
 }

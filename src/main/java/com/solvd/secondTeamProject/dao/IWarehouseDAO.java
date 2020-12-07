@@ -1,5 +1,7 @@
 package com.solvd.secondTeamProject.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
@@ -16,5 +18,6 @@ public interface IWarehouseDAO{
 	Warehouse getWarehouseById(long id);
 
 	void remove(long id);
-
+	
+	List<Warehouse> getAll();
 }
