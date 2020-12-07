@@ -10,9 +10,9 @@ import com.solvd.secondTeamProject.model.Transport;
 import com.solvd.secondTeamProject.model.Warehouse;
 
 public class Algorithm {
-	private OrderDAO oDAO = new OrderDAO();
+	private static OrderDAO oDAO = new OrderDAO();
 	
-	public List<ResultRepresentation> bestTransports(List<Order> orders, Company company, List<Warehouse> warehouses){
+	public static List<ResultRepresentation> bestTransports(List<Order> orders, Company company, List<Warehouse> warehouses){
 		List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
 		boolean foundTransport = false;
 		for (Order o : orders) {

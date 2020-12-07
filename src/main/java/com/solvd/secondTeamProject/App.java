@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.solvd.secondTeamProject.algorithm.Algorithm;
 import com.solvd.secondTeamProject.algorithm.ResultRepresentation;
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
@@ -23,7 +24,6 @@ import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
 import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
-import com.solvd.secondTeamProject.dao.services.CompanyTransportService;
 import com.solvd.secondTeamProject.dao.services.OrderService;
 import com.solvd.secondTeamProject.dao.services.WarehouseService;
 import com.solvd.secondTeamProject.model.*;
@@ -101,20 +101,18 @@ public class App{
 //        wDAO.remove(1);
     	
     	
-    	OrderDAO oDAO = new OrderDAO();
-    	//List<Order> orders = oDAO.getOrders();
     	
+    	List<Order> orders = null;
+    	
+    	WarehouseDAO wDAO = new WarehouseDAO();
+		List<Warehouse> warehouses = wDAO.getAll();
+    	
+		CompanyDAO cDAO = new CompanyDAO();
+		Company company = cDAO.getCompanyById(1);
+		
     	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
-    	//bestTransports = bestTransports(orders,1);
-    	
-    	//Json
-    	ObjectMapper obj = new ObjectMapper();
-    	try {
-    		obj.writeValue(new File("src/main/resources/BestTransports.json"), bestTransports);
-		} catch (IOException e) {
-			log.error(e);
-		}
-    	
+    	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
+    	   	
     }
    
 }
