@@ -25,6 +25,7 @@ public interface IOrderDAO {
 	void remove(long id);
 
 	@Select("SELECT * FROM orders WHERE companies_id = #{id}")
+	@ResultMap("OrderResultMap")
 	List<Order> getOrdersByCompanyId(long id);
 	
 
