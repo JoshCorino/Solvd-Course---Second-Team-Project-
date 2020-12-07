@@ -20,4 +20,6 @@ public interface IOrderGoodsDAO {
 	@ResultMap("com.solvd.secondTeamProject.dao.IProductDAO.ProductResultMap")
 	List<Product> getProductsByOrderId(long id);
 	
+	void relate(Order o, Product p);
+	
 }
