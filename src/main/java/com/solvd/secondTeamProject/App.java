@@ -29,8 +29,7 @@ public class App{
 		CompanyDAO cDAO = new CompanyDAO();
 		Company company = cDAO.getCompanyById(1);
 		
-    	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
-    	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
+    	List<ResultRepresentation> bestTransports = Algorithm.bestTransports(orders,company,warehouses);
     	   	
     }
    

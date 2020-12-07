@@ -26,7 +26,7 @@ public interface IWarehouseDAO{
 	@Delete("DELETE FROM warehouses WHERE id = #{id}")
 	void remove(long id);
 	
-	@Select("SELECT * FROM warehouses wh")
+	@Select("SELECT * FROM warehouses")
 	@ResultMap("WarehouseResultMap")
 	List<Warehouse> getAll();
 }
