@@ -5,16 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
+import com.solvd.secondTeamProject.model.Order;
 import com.solvd.secondTeamProject.model.Warehouse;
 
 public class WarehouseDAO extends MySQLDAO implements IWarehouseDAO{
 	
 	private final String GET_WAREHOUSE= "select * from warehouses where id=?";
+	private final String GET_WAREHOUSES= "select * from warehouses";
 	private final String REMOVE_WAREHOUSE= "delete from warehouses where id=?";
 	private final String SAVE_WAREHOUSE= "insert into warehouses(wh_name) values(?)";
 	
@@ -85,6 +89,31 @@ public class WarehouseDAO extends MySQLDAO implements IWarehouseDAO{
 		}finally{
 			cp.releaseConnection(con);
 		}
+	}
+
+	@Override
+	public List<Warehouse> getAll() {
+		ArrayList<Warehouse> result = new ArrayList<Warehouse>();
+		Connection con = null;
+        try {
+			con = cp.getConnection();
+			PreparedStatement pre = con.prepareStatement(GET_WAREHOUSES);
+			ResultSet rset = pre.executeQuery();
+			while (rset.next()) {
+				Warehouse w = new Warehouse();
+				w.setId(rset.getLong("id"));
+				w.setName(rset.getString("wh_name"));
+				result.add(w);
+			}
+			log.info("Warehouses retrived");
+		} catch (SQLException e) {
+			log.error("SQL Exception, can not get",e);
+		} catch (InterruptedException e) {
+			log.error("Cant get a connection",e);
+		}finally{
+			cp.releaseConnection(con);
+		}
+        return result;
 	}
 
 }
