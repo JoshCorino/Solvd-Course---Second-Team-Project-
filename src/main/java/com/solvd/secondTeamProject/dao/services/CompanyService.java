@@ -2,9 +2,11 @@ package com.solvd.secondTeamProject.dao.services;
 
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.IOrderDAO;
+import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.jdbc.CompanyTransportDAO;
 import com.solvd.secondTeamProject.dao.jdbc.OrderDAO;
+import com.solvd.secondTeamProject.dao.jdbc.TransportDAO;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Order;
 import com.solvd.secondTeamProject.model.Transport;
@@ -14,6 +16,7 @@ public class CompanyService {
 	ICompanyDAO cDAO= new CompanyDAO();
 	IOrderDAO oDAO= new OrderDAO();
 	CompanyTransportDAO ctDAO= new CompanyTransportDAO();
+	ITransportDAO tDAO = new TransportDAO();
 	
 	public Company save(Company c) {
 		
@@ -22,6 +25,7 @@ public class CompanyService {
 			oDAO.save(o, saved);
 		}
 		for (Transport t : saved.getTransports()) {
+			tDAO.save(t);
 			ctDAO.relate(saved,t);
 		}
 		return saved;
