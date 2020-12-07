@@ -23,7 +23,6 @@ import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
 import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
-import com.solvd.secondTeamProject.dao.services.CompanyTransportService;
 import com.solvd.secondTeamProject.dao.services.OrderService;
 import com.solvd.secondTeamProject.dao.services.WarehouseService;
 import com.solvd.secondTeamProject.model.*;
@@ -104,8 +103,11 @@ public class App{
     	OrderDAO oDAO = new OrderDAO();
     	//List<Order> orders = oDAO.getOrders();
     	
+    	System.out.println(oDAO.getOrderById(1));
+    	
     	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
     	//bestTransports = bestTransports(orders,1);
+ 
     	
     	//Json
     	ObjectMapper obj = new ObjectMapper();
