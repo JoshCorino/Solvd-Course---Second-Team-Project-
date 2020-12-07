@@ -1,32 +1,20 @@
 package com.solvd.secondTeamProject;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.solvd.secondTeamProject.algorithm.Algorithm;
 import com.solvd.secondTeamProject.algorithm.ParserResult;
 import com.solvd.secondTeamProject.algorithm.ResultRepresentation;
-import com.solvd.secondTeamProject.dao.ICompanyDAO;
-import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
-import com.solvd.secondTeamProject.dao.IOrderGoodsDAO;
-import com.solvd.secondTeamProject.dao.IProductDAO;
-import com.solvd.secondTeamProject.dao.ITransportDAO;
-import com.solvd.secondTeamProject.dao.IWarehouseDAO;
-import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
-import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
+
 import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
-import com.solvd.secondTeamProject.dao.services.OrderService;
-import com.solvd.secondTeamProject.dao.services.WarehouseService;
+
 import com.solvd.secondTeamProject.model.*;
 
 public class App{
@@ -180,6 +168,7 @@ public class App{
     	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
     	
     	ParserResult.parserResult(bestTransports, "C:/Users/USUARIO/Desktop/bestTransports.json");
+
     }
    
 }
