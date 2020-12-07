@@ -110,7 +110,7 @@ public class App{
     	//Json
     	ObjectMapper obj = new ObjectMapper();
     	try {
-    		obj.writeValue(new File("BestTransports.json"), bestTransports);
+    		obj.writeValue(new File("src/main/resources/BestTransports.json"), bestTransports);
 		} catch (IOException e) {
 			log.error(e);
 		}
