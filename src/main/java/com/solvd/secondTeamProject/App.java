@@ -1,6 +1,8 @@
 package com.solvd.secondTeamProject;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.secondTeamProject.dao.ICompanyDAO;
 import com.solvd.secondTeamProject.dao.ICompanyTransportDAO;
 import com.solvd.secondTeamProject.dao.IOrderGoodsDAO;
@@ -16,6 +20,7 @@ import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
+import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
 import com.solvd.secondTeamProject.dao.services.CompanyTransportService;
 import com.solvd.secondTeamProject.dao.services.OrderService;
@@ -23,16 +28,21 @@ import com.solvd.secondTeamProject.dao.services.WarehouseService;
 import com.solvd.secondTeamProject.model.*;
 
 public class App{
-    
-	private WarehouseDAO wDAO = new WarehouseDAO();
-	private WarehouseService wService = new WarehouseService();
-	private CompanyTransportService ctService = new CompanyTransportService();
-	private CompanyDAO cDAO = new CompanyDAO();
-	private OrderService oService = new OrderService();
+	private Logger log = LogManager.getLogger(App.class);
 	
-	private class ProductShipping{
+	private static WarehouseDAO wDAO = new WarehouseDAO();
+	private static WarehouseService wService = new WarehouseService();
+	private static CompanyTransportService ctService = new CompanyTransportService();
+	private static CompanyDAO cDAO = new CompanyDAO();
+	private static OrderService oService = new OrderService();
+	
+	private static class ProductShipping{
 		private Company c;
 		private Product p;
+		
+		public String toString() {
+			return "ProductShipping [company="+c+",product="+p;
+		}
 		
 		//GETTERS
 		public Company getC() {return c;}
@@ -40,11 +50,17 @@ public class App{
 		//SETTERS
 		public void setC(Company c) {this.c = c;}
 		public void setP(Product p) {this.p = p;}
+		
 	}
 	
-	private class ResultRepresentation{
+	private static class ResultRepresentation{
 		private Transport transport;
 		private List<ProductShipping> productsShipped;
+		
+		public String toString() {
+			return "ResultRepresentation [transport="+transport+", productsShipped="+productsShipped;
+		}
+		
 		//GETTERS
 		public List<ProductShipping> getProductsShipped() {return productsShipped;}
 		public Transport getTransport() {return transport;}
@@ -55,7 +71,7 @@ public class App{
 	
 	
 	
-	public List<ResultRepresentation> bestTransports(List<Order> orders, long companyId){
+	public static List<ResultRepresentation> bestTransports(List<Order> orders, long companyId){
 		List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
 		boolean foundTransport = false;
 		for (Order o : orders) {
@@ -189,8 +205,55 @@ public class App{
 //        pDAO.remove(1);
 //        tDAO.remove(1);
 //        wDAO.remove(1);
+    	
+    	
     	OrderDAO oDAO = new OrderDAO();
-    	List<Order> orders = oDAO.getOrders();
+    	//List<Order> orders = oDAO.getOrders();
+    	
+    	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
+    	//bestTransports = bestTransports(orders,1);
+    	
+    	
+    	//--------------------------------------------
+    	//json test
+    	List<ProductShipping> lps1 = new ArrayList<ProductShipping>();
+    	ProductShipping ps1 = new ProductShipping();
+    	Company c1 = new Company();
+    	c1.setId(1);
+    	ps1.setC(c1);
+    	Product p1 = new Product();
+    	p1.setId(1);
+    	p1.setName("oreo");
+    	ps1.setP(p1);
+    	lps1.add(ps1);
+    	ProductShipping ps2 = new ProductShipping();
+    	ps2.setC(c1);
+    	Product p2 = new Product();
+    	p2.setId(4);
+    	p2.setName("silla");
+    	ps2.setP(p2);
+    	lps1.add(ps2);
+    	ResultRepresentation rr1 = new ResultRepresentation();
+    	rr1.setProductsShipped(lps1);
+    	Transport t1 = new Transport();
+    	t1.setId(1);
+    	t1.setName("car1");
+    	Transport t2 = new Transport();
+    	t2.setId(1);
+    	t2.setName("plane1");
+    	rr1.setTransport(t2);
+    	
+    	bestTransports.add(rr1);
+    	//----------------------------------------------
+    	
+    	//Json
+    	ObjectMapper obj = new ObjectMapper();
+    	String json = "";
+    	try {
+    		obj.writeValue(new File("BestTransports.json"), bestTransports);
+		} catch (IOException e) {
+			log.error(e);
+		}
     	
     }
    
