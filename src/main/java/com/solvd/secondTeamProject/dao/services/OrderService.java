@@ -12,9 +12,9 @@ import com.solvd.secondTeamProject.model.Order;
 import com.solvd.secondTeamProject.model.Product;
 
 public class OrderService {
-	IOrderDAO oDAO = new OrderDAO();
-	IProductDAO pDAO = new ProductDAO();
-	IOrderGoodsDAO ogDAO = new OrderGoodsDAO();
+	private IOrderDAO oDAO = new OrderDAO();
+	private IProductDAO pDAO = new ProductDAO();
+	private IOrderGoodsDAO ogDAO = new OrderGoodsDAO();
 	
 	public Order save(Order o, Company c) {
 		Order saved=  oDAO.save(o,c);

@@ -40,6 +40,13 @@ public class Warehouse extends AbstractEntity{
 	public ArrayList<Product> getProducts() {
 		return new ArrayList<Product>(goods);
 	}
+	public void setAllowedTransports(List<Transport> allowedTransports) {
+		this.allowedTransports = allowedTransports;
+	}
+	public void setGoods(List<Product> goods) {
+		this.goods = goods;
+	}
+	
 	
 	
 }

@@ -1,37 +1,44 @@
 package com.solvd.secondTeamProject.dao.services;
 
-import java.util.List;
 
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
+import com.solvd.secondTeamProject.dao.IWarehouseGoodsDAO;
+import com.solvd.secondTeamProject.dao.IWarehouseTransportsDAO;
 import com.solvd.secondTeamProject.dao.jdbc.ProductDAO;
 import com.solvd.secondTeamProject.dao.jdbc.TransportDAO;
 import com.solvd.secondTeamProject.dao.jdbc.WarehouseDAO;
+import com.solvd.secondTeamProject.dao.jdbc.WarehouseGoodsDAO;
+import com.solvd.secondTeamProject.dao.jdbc.WarehouseTransportsDAO;
 import com.solvd.secondTeamProject.model.Product;
 import com.solvd.secondTeamProject.model.Transport;
 import com.solvd.secondTeamProject.model.Warehouse;
 
 public class WarehouseService {
-	IWarehouseDAO wDAO = new WarehouseDAO();
-	ITransportDAO tDAO = new TransportDAO();
-	IProductDAO pDAO = new ProductDAO();
+	private IWarehouseDAO wDAO = new WarehouseDAO();
+	private ITransportDAO tDAO = new TransportDAO();
+	private IProductDAO pDAO = new ProductDAO();
+	private IWarehouseGoodsDAO wgDAO= new WarehouseGoodsDAO();
+	private	IWarehouseTransportsDAO wtDAO= new WarehouseTransportsDAO();
 	
 	public Warehouse save(Warehouse w) {
-		for(Transport t: w.getTransports()) {
+		Warehouse result =wDAO.save(w);
+		for(Transport t: result.getTransports()) {
 			tDAO.save(t);
+			wtDAO.relate(result, t);
 		}
-		for(Product p: w.getProducts()) {
+		for(Product p: result.getProducts()) {
 			pDAO.save(p);
+			wgDAO.relate(result, p);
 		}
-		return wDAO.save(w);
+		return result;
 	}
 	
-	public List<Transport> getTransportsAllowedByWarehouseId(long id){
-		return null;
-	}
-	
-	public List<Product> getGoodsByWarehouseId(long id){
-		return null;
+	public Warehouse getWarehouse(long id){
+		Warehouse result = wDAO.getWarehouseById(id);
+		result.setAllowedTransports(wtDAO.getTransportsByWarehouseId(id));
+		result.setGoods(wgDAO.getGoodsByWarehouseId(id));
+		return result;
 	}
 }
