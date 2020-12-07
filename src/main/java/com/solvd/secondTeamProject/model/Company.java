@@ -38,6 +38,11 @@ public class Company extends AbstractEntity{
 	public List<Transport> getTransports(){
 		return transports;
 	}
+	
+	public void addOrders(List<Order> orders) {
+		this.orders.addAll(orders);
+	}
+	
 	@Override
 	public String toString() {
 		return "Company [name=" + name + ", orders=" + orders + ", transports=" + transports + "]";
