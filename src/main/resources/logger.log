@@ -1,8 +1,1 @@
-2020-12-07 20:12:51 DEBUG getGoodsByWarehouseId:143 - ==>  Preparing: SELECT gds.id, gds.good_name, gds.volume, whg.quantity, gds.price FROM warehouses_have_goods whg LEFT JOIN goods gds ON (whg.goods_id = gds.id) WHERE whg.warehouses_id = ? 
-2020-12-07 20:12:51 DEBUG getGoodsByWarehouseId:143 - ==> Parameters: 1(Long)
-2020-12-07 20:12:52 DEBUG getGoodsByWarehouseId:143 - <==      Total: 2
-2020-12-07 20:12:52 DEBUG App:75 - [Product [name=TOALLITAS, price=200.0, volume=29.0, quantity=20, id=1], Product [name=GALLETITAS, price=329.0, volume=39.0, quantity=30, id=2]]
-2020-12-07 20:12:52 DEBUG getTransportsByWarehouseId:143 - ==>  Preparing: SELECT tt.transport_name, tt.id FROM allowed_transports at LEFT JOIN transport_types tt ON (at.transport_types_id = tt.id) WHERE at.warehouses_id = ? 
-2020-12-07 20:12:52 DEBUG getTransportsByWarehouseId:143 - ==> Parameters: 1(Long)
-2020-12-07 20:12:52 DEBUG getTransportsByWarehouseId:143 - <==      Total: 3
-2020-12-07 20:12:52 DEBUG App:78 - [Transport [name=BIKE, capacity=null, id=1], Transport [name=CAR, capacity=null, id=2], Transport [name=TRAIN, capacity=null, id=3]]
+2020-12-08 01:49:57 INFO  Algorithm:66 - There is not a transport available for this good: table
