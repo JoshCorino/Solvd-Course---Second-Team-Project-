@@ -1,6 +1,7 @@
 package com.solvd.secondTeamProject;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,97 +23,36 @@ public class App{
 	
 	public static void main( String[] args ){
     	Logger log = LogManager.getLogger(App.class);
-
-//    	Company company = new Company();
-//    	company.setName("DHL");
-//
-//    	Order order = new Order();
-//    	order.setDate(new Date(0));
-//
-//    	Product product = new Product();
-//    	product.setName("Tv");
-//    	product.setPrice(100);
-//    	product.setVolume(10);
-//    	product.setQuantity(2l);
-//    	
-//    	Transport transport = new Transport();
-//    	transport.setName("train");
-//    	transport.setCapacity(123d);
-//    	
-//    	Warehouse warehouse = new Warehouse();
-//    	warehouse.setName("Warehouse");
-//        	
-//        CompanyDAO cDAO = new CompanyDAO();
-//        OrderDAO oDAO = new OrderDAO();
-//        ProductDAO pDAO = new ProductDAO();
-//        TransportDAO tDAO = new TransportDAO();
-//        WarehouseDAO wDAO = new WarehouseDAO();
-//        
-//        cDAO.save(company);
-//        oDAO.save(order, company);
-//        pDAO.save(product);
-//        tDAO.save(transport);
-//        wDAO.save(warehouse);
-//        
-//        WarehouseGoodsDAO wgDAO = new WarehouseGoodsDAO();
-//        WarehouseTransportsDAO wtDAO = new WarehouseTransportsDAO();
-//        CompanyTransportDAO ctDAO = new CompanyTransportDAO();
-//        
-//        wgDAO.relate(warehouse, product);
-//        wtDAO.relate(warehouse, transport);
-//        ctDAO.relate(company, transport);
-//        
-//        log.info(wgDAO.getGoodsByWarehouseId(1));
-//        log.info(wtDAO.getTransportsByWarehouseId(1));
-//        log.info(ctDAO.getTransportsByCompanyId(1));
-//        
-//        Company companyGetted = cDAO.getById(1);
-//    	log.info(companyGetted.toString());
-//
-//    	Order orderGetted = oDAO.getById(1);
-//    	log.info(orderGetted.toString());
-//
-//    	Product productGetted = pDAO.getById(1);
-//    	log.info(productGetted.toString());
-//
-//    	
-//    	Transport transportGetted = tDAO.getById(1);
-//    	log.info(transportGetted.toString());
-//    	
-//    	Warehouse warehouseGetted = wDAO.getById(1);
-//    	log.info(warehouseGetted.toString());
-//    	
-//        
-//        oDAO.remove(1);
-//        cDAO.remove(1);
-//        pDAO.remove(1);
-//        tDAO.remove(1);
-//        wDAO.remove(1);
+    	
+    	/*
+    	WarehouseDAO wDAO = new WarehouseDAO();
+    	List<Warehouse> warehouses = wDAO.getAll();
+    	
+    	CompanyDAO cDAO = new CompanyDAO();
+    	Company company = cDAO.getCompanyById(1);
+    	*/
     	
     	Transport car1 = new Transport();
     	car1.setName("car");
-    	car1.setCapacity(10.0);
-    	car1.setId(1);
+    	car1.setCapacity(10.0);	
     	Transport car2 = new Transport();
     	car2.setName("car");
     	car2.setCapacity(9.0);
-    	car2.setId(2);
     	Transport plane = new Transport();
     	plane.setName("plane");
-    	plane.setCapacity(40.0);
-    	plane.setId(3);
+    	plane.setCapacity(40.0);	
     	
     	List<Transport> allowedTransports1 = new ArrayList<Transport>();
 		allowedTransports1.add(car1);
 		List<Transport> allowedTransports2 = new ArrayList<Transport>();
 		allowedTransports2.add(plane);
 		
-    	Product p1 = new Product();
+		Product p1 = new Product();
 		p1.setName("sofa");
 		p1.setVolume(20);
 		Product p2 = new Product();
 		p2.setName("chair");
-		p2.setVolume(9);
+		p2.setVolume(3);
 		Product p3 = new Product();
 		p3.setName("table");
 		p3.setVolume(13);
@@ -159,15 +99,15 @@ public class App{
     	orders.add(o1); orders.add(o2);
     	
     	Company company = new Company();
-    	company.setId(1);
+    	
     	List<Transport> companyTransports = new ArrayList<Transport>();
     	companyTransports.add(car1);companyTransports.add(car2);companyTransports.add(plane);
-    	company.setTransports(companyTransports);
-    	
+    	company.setTransports(companyTransports); 	   	
+   	
     	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
     	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
     	
-    	ParserResult.parserResult(bestTransports, "C:/Users/USUARIO/Desktop/bestTransports.json");
+    	ParserResult.parserResult(bestTransports, "src/main/resources/bestTransports.json");
 
     }
    

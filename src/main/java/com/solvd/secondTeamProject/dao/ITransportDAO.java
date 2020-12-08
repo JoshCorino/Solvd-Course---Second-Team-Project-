@@ -10,7 +10,7 @@ import com.solvd.secondTeamProject.model.Transport;
 
 public interface ITransportDAO{
 	
-	@Select("INSERT INTO transport_type "
+	@Select("INSERT INTO transport_types "
 			+ "(transport_name) "
 			+ "VALUES (#{tra.name})")
 	Transport save(@Param("tra") Transport g);

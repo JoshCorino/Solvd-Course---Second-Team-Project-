@@ -14,7 +14,7 @@ import com.solvd.secondTeamProject.model.Order;
 
 public interface IOrderDAO {
 
-	@Select("INSERT INTO order (companies_id, date) VALUES (#{com.id}, #{ord.date})")
+	@Select("INSERT INTO orders (companies_id, date) VALUES (#{com.id}, #{ord.date})")
 	Order save(@Param("ord") Order g, @Param("com") Company c);
 
 	@Select("SELECT * FROM orders WHERE id = #{id}")
