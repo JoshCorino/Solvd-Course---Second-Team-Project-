@@ -1,6 +1,8 @@
 package com.solvd.secondTeamProject.dao.services;
 
 
+import java.util.List;
+
 import com.solvd.secondTeamProject.dao.IProductDAO;
 import com.solvd.secondTeamProject.dao.ITransportDAO;
 import com.solvd.secondTeamProject.dao.IWarehouseDAO;
@@ -40,5 +42,14 @@ public class WarehouseService {
 		result.setAllowedTransports(wtDAO.getTransportsByWarehouseId(id));
 		result.setGoods(wgDAO.getGoodsByWarehouseId(id));
 		return result;
+	}
+	
+	public List<Warehouse> getAll(){
+		List<Warehouse> warehouses = wDAO.getAll();
+		for (Warehouse w : warehouses) {
+			w.setAllowedTransports(wtDAO.getTransportsByWarehouseId(w.getId()));
+			w.setGoods(wgDAO.getGoodsByWarehouseId(w.getId()));
+		}
+		return warehouses;
 	}
 }
