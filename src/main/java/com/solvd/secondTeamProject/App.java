@@ -15,7 +15,9 @@ import com.solvd.secondTeamProject.algorithm.ResultRepresentation;
 
 import com.solvd.secondTeamProject.dao.jdbc.CompanyDAO;
 import com.solvd.secondTeamProject.dao.mybatis.*;
-
+import com.solvd.secondTeamProject.dao.services.CompanyService;
+import com.solvd.secondTeamProject.dao.services.OrderService;
+import com.solvd.secondTeamProject.dao.services.WarehouseService;
 import com.solvd.secondTeamProject.model.*;
 
 public class App{
@@ -24,14 +26,31 @@ public class App{
 	public static void main( String[] args ){
     	Logger log = LogManager.getLogger(App.class);
     	
+    	WarehouseService ws = new WarehouseService();
+    	List<Warehouse> warehouses = ws.getAll();
+    	
+    	CompanyService cs = new CompanyService();
+    	Company company = cs.getCompany(1);
+    	
+    	List<Product> goods1 = warehouses.get(0).getProducts();
+    	List<Product> goods2 = warehouses.get(1).getProducts();
+    	
+    	Order o1 = new Order();
+    	List<Product> goodOrder1 = new ArrayList<Product>();
+    	goodOrder1.add(goods1.get(1));goodOrder1.add(goods2.get(2));
+		goods2.get(1).setQuantity(2l);goods1.get(2).setQuantity(5l);
+    	o1.setGoods(goodOrder1);
+		
+    	Order o2 = new Order();
+    	List<Product> goodOrder2 = new ArrayList<Product>();
+    	goodOrder2.add(goods1.get(2));
+		goods1.get(2).setQuantity(1l);
+    	o2.setGoods(goodOrder2);
+    	
+    	List<Order> orders = new ArrayList<Order>();
+    	orders.add(o1); orders.add(o2);
+    	
     	/*
-    	WarehouseDAO wDAO = new WarehouseDAO();
-    	List<Warehouse> warehouses = wDAO.getAll();
-    	
-    	CompanyDAO cDAO = new CompanyDAO();
-    	Company company = cDAO.getCompanyById(1);
-    	*/
-    	
     	Transport car1 = new Transport();
     	car1.setName("car");
     	car1.setCapacity(10.0);	
@@ -103,9 +122,13 @@ public class App{
     	List<Transport> companyTransports = new ArrayList<Transport>();
     	companyTransports.add(car1);companyTransports.add(car2);companyTransports.add(plane);
     	company.setTransports(companyTransports); 	   	
-   	
+   	*/
     	List<ResultRepresentation> bestTransports = new ArrayList<ResultRepresentation>();
     	bestTransports = Algorithm.bestTransports(orders,company,warehouses);
+    	
+    	OrderService os = new OrderService();
+    	os.save(o1, company);
+    	os.save(o2, company);
     	
     	ParserResult.parserResult(bestTransports, "src/main/resources/bestTransports.json");
 
