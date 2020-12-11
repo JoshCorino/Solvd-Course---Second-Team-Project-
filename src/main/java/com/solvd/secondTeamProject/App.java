@@ -35,16 +35,20 @@ public class App{
     	List<Product> goods1 = warehouses.get(0).getProducts();
     	List<Product> goods2 = warehouses.get(1).getProducts();
     	
+    	System.out.println(goods1.toString());
+    	
     	Order o1 = new Order();
     	List<Product> goodOrder1 = new ArrayList<Product>();
-    	goodOrder1.add(goods1.get(1));goodOrder1.add(goods2.get(2));
-		goods2.get(1).setQuantity(2l);goods1.get(2).setQuantity(5l);
+    	goodOrder1.add(goods1.get(0));
+    	goodOrder1.add(goods2.get(1));
+		goods2.get(0).setQuantity(2l);
+		goods1.get(1).setQuantity(5l);
     	o1.setGoods(goodOrder1);
 		
     	Order o2 = new Order();
     	List<Product> goodOrder2 = new ArrayList<Product>();
-    	goodOrder2.add(goods1.get(2));
-		goods1.get(2).setQuantity(1l);
+    	goodOrder2.add(goods1.get(1));
+		goods1.get(1).setQuantity(1l);
     	o2.setGoods(goodOrder2);
     	
     	List<Order> orders = new ArrayList<Order>();

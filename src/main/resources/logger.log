@@ -1,1 +1,12 @@
-2020-12-08 01:49:57 INFO  Algorithm:66 - There is not a transport available for this good: table
+2020-12-10 22:24:22 INFO  WarehouseDAO:108 - Warehouses retrived
+2020-12-10 22:24:22 INFO  OrderDAO:110 - Orders retrived
+2020-12-10 22:24:22 INFO  Algorithm:66 - There is not a transport available for this good: Oreos
+2020-12-10 22:24:22 INFO  Algorithm:66 - There is not a transport available for this good: table
+2020-12-10 22:24:22 INFO  OrderDAO:38 - Order saved
+2020-12-10 22:24:22 INFO  ProductDAO:34 - Product saved
+2020-12-10 22:24:23 INFO  OrderGoodsDAO:68 - Order and Product related
+2020-12-10 22:24:23 INFO  ProductDAO:34 - Product saved
+2020-12-10 22:24:23 INFO  OrderGoodsDAO:68 - Order and Product related
+2020-12-10 22:24:23 INFO  OrderDAO:38 - Order saved
+2020-12-10 22:24:23 INFO  ProductDAO:34 - Product saved
+2020-12-10 22:24:23 INFO  OrderGoodsDAO:68 - Order and Product related
