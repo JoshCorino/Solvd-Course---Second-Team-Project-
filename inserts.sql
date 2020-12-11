@@ -1,6 +1,3 @@
-USE bigpro;
-SET SQL_SAFE_UPDATES = 0;
-
 delete from orders_have_goods;
 ALTER TABLE orders_have_goods auto_increment = 1;
 delete from allowed_transports;
@@ -34,16 +31,18 @@ insert into orders (companies_id, date)
 values (1,"2000-02-02");
 
 insert into goods (price, volume, good_name)
-values (2.2, 5.0, "Oreos");
+values (2.2, 2.0, "cookie");
 insert into goods (price, volume, good_name)
-values (2.2, 10.0, "vanilla");
+values (2.2, 6.0, "cake");
+insert into goods (price, volume, good_name)
+values (2.2, 3.0, "bread");
 
 insert into goods (price, volume, good_name)
-values (2.2, 5.0, "chair");
+values (2.2, 3.0, "chair");
 insert into goods (price, volume, good_name)
-values (2.2, 5.0, "table");
+values (2.2, 20.0, "mattress");
 insert into goods (price, volume, good_name)
-values (2.2, 5.0, "mattress");
+values (2.2, 13.0, "table");
 
 insert into orders_have_goods (goods_id,orders_id,quantity)
 values (1,1,2);
@@ -57,13 +56,15 @@ insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
 values (1,1,30);
 insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
 values (2,1,30);
-
 insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
-values (3,2,30);
+values (3,1,30);
+
 insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
 values (4,2,30);
 insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
 values (5,2,30);
+insert into warehouses_have_goods(goods_id,warehouses_id,quantity)
+values (6,2,30);
 
 insert into transport_types (transport_name)
 values ("car");
@@ -71,9 +72,7 @@ insert into transport_types (transport_name)
 values ("plane");
 
 insert into companies_have_transports (companies_id, transports_id,capacity)
-values (1,1,40);
-insert into companies_have_transports (companies_id, transports_id,capacity)
-values (1,1,40);
+values (1,1,10);
 insert into companies_have_transports (companies_id, transports_id,capacity)
 values (1,2,40);
 
@@ -91,6 +90,3 @@ select * from goods;
 select * from transport_types;
 select * from warehouses;
 select * from warehouses_have_goods;
-
-SET SQL_SAFE_UPDATES = 1;
-
