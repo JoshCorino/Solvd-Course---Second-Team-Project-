@@ -1,33 +1,26 @@
 [ {
   "transport_info" : {
-    "id" : 0,
+    "id" : 1,
     "name" : "car",
-    "capacity" : 4.0
+    "capacityLeft" : 0.0
   },
   "products_shipped" : [ {
-    "company_info" : "no-name",
+    "company_info" : "arcor",
     "product_info" : {
-      "id" : 0,
-      "name" : "chair",
-      "price" : 0.0,
-      "volume" : 3.0,
+      "id" : 16,
+      "name" : "coockie",
+      "price" : 2.2,
+      "volume" : 2.0,
       "quantity" : 2
     }
-  } ]
-}, {
-  "transport_info" : {
-    "id" : 0,
-    "name" : "plane",
-    "capacity" : 25.0
-  },
-  "products_shipped" : [ {
-    "company_info" : "no-name",
+  }, {
+    "company_info" : "arcor",
     "product_info" : {
-      "id" : 0,
-      "name" : "bread",
-      "price" : 0.0,
-      "volume" : 3.0,
-      "quantity" : 5
+      "id" : 18,
+      "name" : "cake",
+      "price" : 2.2,
+      "volume" : 6.0,
+      "quantity" : 1
     }
   } ]
 } ]

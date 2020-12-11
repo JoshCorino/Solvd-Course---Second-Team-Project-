@@ -1,11 +1,10 @@
 package com.solvd.secondTeamProject.algorithm;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.solvd.homework7.models.CustomDateSerializer;
 import com.solvd.secondTeamProject.jackson.CompanySerializer;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Product;

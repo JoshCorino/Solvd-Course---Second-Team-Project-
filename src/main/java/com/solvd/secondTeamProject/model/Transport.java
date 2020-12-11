@@ -1,7 +1,10 @@
 package com.solvd.secondTeamProject.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Transport extends AbstractEntity {
 	private String name;
+	@JsonProperty("capacity_left")
 	private Double capacity;
 	
 	public Double getCapacity() {
