@@ -1,104 +1,33 @@
 [ {
   "transport_info" : {
-    "id" : 1,
+    "id" : 0,
     "name" : "car",
-    "capacity" : 30.0
+    "capacity" : 4.0
   },
   "products_shipped" : [ {
-    "company_info" : {
-      "id" : 1,
-      "name" : "Applebee's",
-      "orders" : [ {
-        "id" : 1,
-        "date" : 949460400000,
-        "goods" : [ ]
-      }, {
-        "id" : 2,
-        "date" : 949460400000,
-        "goods" : [ ]
-      }, {
-        "id" : 3,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 4,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 5,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 6,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 7,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 8,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 9,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 10,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 11,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 12,
-        "date" : -75600000,
-        "goods" : [ ]
-      }, {
-        "id" : 13,
-        "date" : 0,
-        "goods" : [ {
-          "id" : 21,
-          "name" : "Oreos",
-          "price" : 2.2,
-          "volume" : 5.0,
-          "quantity" : 30
-        }, {
-          "id" : 22,
-          "name" : "table",
-          "price" : 2.2,
-          "volume" : 5.0,
-          "quantity" : 30
-        } ]
-      }, {
-        "id" : 14,
-        "date" : 0,
-        "goods" : [ {
-          "id" : 23,
-          "name" : "vanilla",
-          "price" : 2.2,
-          "volume" : 10.0,
-          "quantity" : 1
-        } ]
-      } ],
-      "transports" : [ {
-        "id" : 1,
-        "name" : "car",
-        "capacity" : 40.0
-      }, {
-        "id" : 2,
-        "name" : "plane",
-        "capacity" : 40.0
-      } ]
-    },
+    "company_info" : "no-name",
     "product_info" : {
-      "id" : 23,
-      "name" : "vanilla",
-      "price" : 2.2,
-      "volume" : 10.0,
-      "quantity" : 1
+      "id" : 0,
+      "name" : "chair",
+      "price" : 0.0,
+      "volume" : 3.0,
+      "quantity" : 2
+    }
+  } ]
+}, {
+  "transport_info" : {
+    "id" : 0,
+    "name" : "plane",
+    "capacity" : 25.0
+  },
+  "products_shipped" : [ {
+    "company_info" : "no-name",
+    "product_info" : {
+      "id" : 0,
+      "name" : "bread",
+      "price" : 0.0,
+      "volume" : 3.0,
+      "quantity" : 5
     }
   } ]
 } ]

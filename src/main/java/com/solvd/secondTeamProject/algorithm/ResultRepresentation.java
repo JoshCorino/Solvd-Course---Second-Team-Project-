@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.solvd.homework7.models.CustomDateSerializer;
+import com.solvd.secondTeamProject.jackson.CompanySerializer;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Product;
 import com.solvd.secondTeamProject.model.Transport;
@@ -35,6 +38,7 @@ public class ResultRepresentation {
 	
 	private class ProductShipping {
 		@JsonProperty("company_info")
+		@JsonSerialize(using = CompanySerializer.class)
 		private Company company;
 		@JsonProperty("product_info")
 		private Product product;

@@ -134,6 +134,8 @@ public class App{
     	os.save(o1, company);
     	os.save(o2, company);
     	
+    	
+    	//System.out.println(bestTransports.size());
     	ParserResult.parserResult(bestTransports, "src/main/resources/bestTransports.json");
 
     }
