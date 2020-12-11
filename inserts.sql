@@ -1,3 +1,6 @@
+USE bigpro;
+SET SQL_SAFE_UPDATES = 0;
+
 delete from orders_have_goods;
 ALTER TABLE orders_have_goods auto_increment = 1;
 delete from allowed_transports;
@@ -90,3 +93,6 @@ select * from goods;
 select * from transport_types;
 select * from warehouses;
 select * from warehouses_have_goods;
+
+USE bigpro;
+SET SQL_SAFE_UPDATES = 1;

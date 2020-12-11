@@ -1,22 +1,22 @@
 [ {
   "transport_info" : {
-    "id" : 1,
-    "name" : "car",
-    "capacityLeft" : 0.0
+    "id" : 2,
+    "name" : "plane",
+    "capacity_left" : 30.0
   },
   "products_shipped" : [ {
-    "company_info" : "arcor",
+    "company_info" : "Applebee's",
     "product_info" : {
-      "id" : 16,
-      "name" : "coockie",
+      "id" : 7,
+      "name" : "cookie",
       "price" : 2.2,
       "volume" : 2.0,
       "quantity" : 2
     }
   }, {
-    "company_info" : "arcor",
+    "company_info" : "Applebee's",
     "product_info" : {
-      "id" : 18,
+      "id" : 9,
       "name" : "cake",
       "price" : 2.2,
       "volume" : 6.0,
