@@ -2,12 +2,16 @@ package com.solvd.secondTeamProject.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.solvd.secondTeamProject.model.Company;
 import com.solvd.secondTeamProject.model.Product;
 import com.solvd.secondTeamProject.model.Transport;
 
 public class ResultRepresentation {
+	@JsonProperty("transport_info")
 	private Transport transport;
+	@JsonProperty("products_shipped")
 	private List<ProductShipping> productsShipped = new ArrayList<ProductShipping>();
 	
 	public String toString() {
@@ -16,8 +20,8 @@ public class ResultRepresentation {
 	
 	public void addProduct(Company company, Product product) {
 		ProductShipping ps = new ProductShipping();
-		ps.setC(company);
-		ps.setP(product);
+		ps.setCompany(company);
+		ps.setProduct(product);
 		productsShipped.add(ps);
 	}
 	
@@ -29,8 +33,10 @@ public class ResultRepresentation {
 	public void setTransport(Transport transport) {this.transport = transport;}
 	
 	
-	private class ProductShipping{
+	private class ProductShipping {
+		@JsonProperty("company_info")
 		private Company company;
+		@JsonProperty("product_info")
 		private Product product;
 		
 		public String toString() {
@@ -38,11 +44,11 @@ public class ResultRepresentation {
 		}
 		
 		//GETTERS
-		public Company getC() {return company;}
-		public Product getP() {return product;}
+		public Company getCompany() {return company;}
+		public Product getProduct() {return product;}
 		//SETTERS
-		public void setC(Company company) {this.company = company;}
-		public void setP(Product product) {this.product = product;}
+		public void setCompany(Company company) {this.company = company;}
+		public void setProduct(Product product) {this.product = product;}
 		
 	}
 }
